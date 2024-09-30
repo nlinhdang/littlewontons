@@ -8,11 +8,11 @@
 .container {
   transition: transform 1s ease;
   box-sizing: border-box;
-  padding: 3px;
-  /* border: 5px red solid; */
-
+  padding-left: 3px;
+  padding-right: 5px;
+margin: auto;
   width: 100%;
-    max-width: 1200px;
+  max-width: 1200px;
 
 }
 
@@ -158,20 +158,11 @@ h1 {
   background-color: #f0bf65;
 }
 
-/* Delivery location and time sections */
-.delivery-location,
-.delivery-time {
-  margin-top: 20px;
-  padding: 10px;
-  border-top: 2px solid #007bff;
+.delivery-section p,
+.delivery-location p {
+  font-size: 0.9rem;
+  padding-bottom: 10px
 }
-
-.delivery-location p,
-.delivery-time p {
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-
 .delivery-location label,
 .delivery-time label {
   display: block;
@@ -315,7 +306,8 @@ button[type="submit"]:hover {
 }
 
 .delivery-section {
-  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-top: none
 }
 
 .product-options {
@@ -365,6 +357,7 @@ h3 {
 }
 
 .num-weeks{
+  margin: -12px;
   font-size: 14px;
   margin-bottom: 10px;
   text-align: center;
@@ -372,15 +365,31 @@ h3 {
 
 .num-weeks input {
   text-align: center;
-  height: 12px;
+  /* height: 12px; */
   max-width: 30px;
   font-size: 13px;
-  margin-left: 5px
+  margin-left: 5px;
+  /* padding: 2px; */
 }
 
 label input[type="radio"] {
   margin-right: 5px;
   /* Khoảng cách giữa radio button và văn bản */
+}
+
+.note-container {
+  margin-top: 10px
+}
+.note-input {
+  width: 100%;
+  font-size: 0.65rem;
+  padding: 5px;
+  border:1px solid #ddd;
+  border-radius: 5px;
+  resize: vertical;
+  /* resize: none; */
+    /* Ngăn chặn việc thay đổi kích thước bằng tay */
+    overflow: hidden;
 }
 .order-form {
   width:30%;
@@ -456,11 +465,12 @@ input[type="number"] {
   /* Điểm giữa của phần tử giữ nguyên */
 }
 
-@media (max-width: 480px) {
+@media (max-width: 700px) {
   
   .container {
     /* border: blue 5px solid; */
-    padding: 2px
+    padding-left: 1px;
+    padding-right: 2px
   }
   .grid-header {
     /* display: none; */
@@ -501,7 +511,7 @@ input[type="number"] {
   }
   h1 {
     font-size: 17px;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 10px;
   }
 
@@ -529,7 +539,7 @@ input[type="number"] {
   }
   .order-form {
     margin: auto;
-    width: 75%;
+    width: 100%;
     /* margin-right: 10% */
   }
   h3 {
@@ -548,11 +558,13 @@ input[type="number"] {
   }
 
   .num-weeks input {
-    width: 15px;
+    width: 30px;
     font-size: 10px;
+    padding: 2px
   }
   .submit-button button {
-    font-size: 10px !important;
-    padding: 5px !important;
+    font-size: 12px;
+    padding: 7px;
+    margin-top: 5px
   }
 }
