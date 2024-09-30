@@ -1,0 +1,558 @@
+* {
+  font-family: poppins;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  transition: transform 1s ease;
+  box-sizing: border-box;
+  padding: 3px;
+  /* border: 5px red solid; */
+
+  width: 100%;
+    max-width: 1200px;
+
+}
+
+
+.container.clicked{
+  transform: translateY(-30px);
+}
+.img-container.centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.img-container.clicked {
+  align-items: normal;
+} 
+
+
+.logo-container {
+  /* border: 5px black solid; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+  height: 100%;
+}
+
+.logo-container.logo-block {
+  margin-top: 30px;
+  align-items: normal;
+  max-width: 50vh;
+  min-width: 30vh;
+  width: 40%;
+  height: auto;
+  margin-bottom: 5%;
+}
+.logo-block {
+  /* display: block; */
+  margin: 0 auto
+}
+.littlewonton {
+  max-width: 80%;
+}
+
+.logo {
+  margin-top: -12%;
+  max-width: 40%;
+}
+
+.madewithlove {
+  max-width: 25%;
+  
+}
+
+.clickme {
+  max-width: 25%;
+  margin-top: -23%;
+  margin-left: 55%
+}
+
+.clickme.logo-block {
+  display: none;
+}
+
+.product-table {
+  max-width: 800px;
+  margin: 0 auto;
+    }
+
+
+body {
+  background-color: #F7F5F2;
+  color: #503d3d;
+  overflow-x: hidden;
+}
+
+/* Header */
+h1 {
+  font-size: 1.5rem;
+  margin: 20px;
+  text-align: center;
+}
+
+.grid-container {
+  display: grid;
+  gap: 5px;
+  margin-bottom: 20px;
+  align-items: stretch;
+  /* width: 100vw; */
+}
+
+/* Frozen grid configuration */
+.grid-container.frozen {
+  /* grid-template-columns: 3fr 2fr 3fr 1fr 1fr; */
+  grid-template-columns: minmax(50px, 3fr) minmax(50px, 2fr) minmax(75px, 3fr) minmax(25px, 1fr) minmax(25px, 1fr);
+}
+
+.grid-container.cooked {
+  display: grid;
+  /* grid-template-columns: 2fr 1fr 4fr 1fr 1fr; */
+  grid-template-columns: minmax(50px, 2fr) minmax(25px, 1fr) minmax(100px, 4fr) minmax(25px, 1fr) minmax(25px, 1fr);
+  align-items: center;
+}
+
+
+.payment-photo {
+  width: 40%;
+}
+    
+
+/* Grid items and headers */
+.grid-item,
+.grid-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 10px;
+}
+
+.grid-item {
+  text-align: center;
+  font-size: 13px;
+}
+
+/* Total amount styling */
+.total,
+.totalAmount {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: right;
+  margin-top: 10px;
+}
+
+/* Reset button style */
+.reset-button:hover {
+  background-color: #f0bf65;
+}
+
+/* Delivery location and time sections */
+.delivery-location,
+.delivery-time {
+  margin-top: 20px;
+  padding: 10px;
+  border-top: 2px solid #007bff;
+}
+
+.delivery-location p,
+.delivery-time p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.delivery-location label,
+.delivery-time label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.delivery-location input[type="radio"],
+.delivery-time input[type="radio"] {
+  margin-right: 10px;
+}
+
+/* Order form styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  /* margin-left: 4px; */
+}
+
+input {
+  padding: 3px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.submit-button button {
+  background-color: #da8d00;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: auto
+}
+
+button[type="submit"]:hover {
+  background-color: #ffa43c;
+}
+
+/* General styles */
+
+.grid-header {
+  font-weight: bold;
+  background-color: #d9d9d9;
+  text-align: center;
+}
+
+.number-of-portions-header {
+  grid-column: 3;
+  /* Cột "Number of portions in a week" chiếm 3 cột */
+  text-align: center;
+}
+
+.subheader-wrapper {
+  grid-column: 3;
+  /* Subheaders cũng chiếm 3 cột */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* Chia thành 3 cột con */
+  gap: 5px;
+}
+
+.grid-subheader {
+  text-align: center;
+  font-weight: 600;
+  font-size: 13px
+}
+
+.empty-space {
+  grid-column: 1 / -1;
+  height: 1px;
+}
+.quantity{
+  display: flex
+}
+.quantity-control {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding:0;
+  border:none
+}
+
+.quantity-button,
+.quantity-input {
+  text-align: center;
+  background-color: #f9f9f9;
+  color: rgb(128, 128, 128);
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 13px;
+  border-radius: 0%;
+  /* box-sizing: border-box; */
+}
+
+.quantity-input{
+  border-left:none;
+  border-right: none;
+  cursor:auto;
+  width: 100%;
+}
+
+.quantity-button :hover {
+  background-color: #0e0e0e;
+}
+.quantity-button-decrease {
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.quantity-button-increase {
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  margin-right: 2px;
+}
+
+.reset-button {
+  background-color: #da8d00;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 18px;
+  text-align: right;
+}
+
+.delivery-section {
+  border-top: 1px solid #ccc;
+}
+
+.product-options {
+  margin-bottom: 20px;
+}
+
+.product-options p {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.product-options label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.product-options input {
+  margin-right: 5px;
+}
+
+.frozen-section,
+.cooked-section,
+.both-section {
+  margin-top: 20px;
+}
+
+.frozen-wontons,
+.lunch-box {
+  margin-top: 20px;
+}
+
+h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.header-options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-type {
+  display: flex;
+  padding-bottom: 10px;
+  font-size: 18px;
+  gap: 20px
+}
+
+.num-weeks{
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.num-weeks input {
+  text-align: center;
+  height: 12px;
+  max-width: 30px;
+  font-size: 13px;
+  margin-left: 5px
+}
+
+label input[type="radio"] {
+  margin-right: 5px;
+  /* Khoảng cách giữa radio button và văn bản */
+}
+.order-form {
+  width:30%;
+  /* margin-right: 10% */
+}
+
+.container.payment-form {
+  display: flex;
+  justify-content: space-between
+}
+.bank-info {
+  display: flex;
+  gap: 10%;
+}
+.payment-photo{
+  max-width: 250px;
+  /* margin-left: 5% */
+}
+.bank-info {
+  /* width: 50%; */
+  align-items: center;
+  flex-direction: row;
+}
+
+.input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.submit-button {
+  display: flex;
+  align-items: center;
+}
+
+@keyframes shake {
+  0% {
+      transform: rotate(0deg);
+      /* Bắt đầu tại vị trí ban đầu */
+    }
+  
+    25% {
+      transform: rotate(-10deg);
+      /* Xoay sang trái */
+    }
+  
+    50% {
+      transform: rotate(10deg);
+      /* Xoay sang phải */
+    }
+  
+    75% {
+      transform: rotate(-10deg);
+      /* Lắc lại một lần nữa sang trái */
+    }
+  
+    100% {
+      transform: rotate(0deg);
+      /* Kết thúc giữ nguyên vị trí */
+    }
+  }
+
+.shake-animation {
+  cursor: pointer;
+  display: inline-block;
+  animation: shake 2s ease-in-out infinite;
+  /* Hiệu ứng lắc đầu lặp lại */
+  transform-origin: bottom;
+  /* Điểm giữa của phần tử giữ nguyên */
+}
+
+@media (max-width: 480px) {
+  
+  .container {
+    /* border: blue 5px solid; */
+    padding: 2px
+  }
+  .grid-header {
+    /* display: none; */
+    font-size: 6px;
+  }
+  .grid-item {
+    font-size: 10px;
+    padding: 0;
+    margin: 0
+  }
+  .grid-container {
+    gap: 1px;
+    padding: 0px;
+  }
+  .grid-container.frozen {
+    /* grid-template-columns: 3fr 2fr 3fr 1fr 1fr; */
+    grid-template-columns: minmax(75px, 4fr) minmax(25px, 1fr) minmax(50px, 2fr) minmax(25px, 1fr) minmax(25px, 1fr);
+  }
+
+  .grid-container.cooked {
+    /* grid-template-columns: 2fr 1fr 4fr 1fr 1fr; */
+    grid-template-columns: minmax(70px, 3fr) minmax(25px, 1fr) minmax(125px, 4fr) minmax(25px, 1fr) minmax(25px, 1fr);
+    /* gap: 5px; */
+  }
+
+  .reset-button {
+    font-size: 8px;
+    padding: 2px;
+  }
+  .quantity-button,
+  .quantity-input {
+    font-size: 10px;
+    padding: 0 3px
+    }
+
+  .grid-subheader {
+    font-size: 7px
+  }
+  h1 {
+    font-size: 17px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  label {
+    font-size: 10px
+  }
+  .delivery-section label,
+  .delivery-location label {
+    font-size: 11px;
+    margin-bottom: 0;
+  }
+  .delivery-section p,
+  .delivery-location p {
+    font-size: 10px;
+  }
+
+  .total {
+    font-size: 13px;
+  }
+  .container.payment-form {
+    display: block;
+    margin: auto;
+    width: 75%
+    /* justify-content: space-between */
+  }
+  .order-form {
+    margin: auto;
+    width: 75%;
+    /* margin-right: 10% */
+  }
+  h3 {
+    font-size: 13px;
+  padding-top: 10px
+}
+  .payment h4 {
+    font-size: 10px;
+  }
+
+  .payment p {
+    font-size: 11px;
+  }
+  input {
+  font-size: 10px;
+  }
+
+  .num-weeks input {
+    width: 15px;
+    font-size: 10px;
+  }
+  .submit-button button {
+    font-size: 10px !important;
+    padding: 5px !important;
+  }
+}
