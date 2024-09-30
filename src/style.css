@@ -141,7 +141,7 @@ h1 {
 
 .grid-item {
   text-align: center;
-  font-size: 13px;
+  font-size: 0.9rem;
 }
 
 /* Total amount styling */
@@ -377,12 +377,16 @@ label input[type="radio"] {
   /* Khoảng cách giữa radio button và văn bản */
 }
 
+.delivery-section {
+  padding-left: 20px
+}
+
 .note-container {
   margin-top: 10px
 }
 .note-input {
   width: 100%;
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   padding: 5px;
   border:1px solid #ddd;
   border-radius: 5px;
@@ -567,4 +571,8 @@ input[type="number"] {
     padding: 7px;
     margin-top: 5px
   }
+  .note-input {
+    font-size: 0.65rem
+  }
+  
 }
