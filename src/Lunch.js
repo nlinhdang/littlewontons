@@ -4,7 +4,7 @@ import { formatNumber, calculateAmount } from './utils';
 import { useAppContext } from './AppContext';
 
 const cookedHeaders = ['Product', 'Price', 'Number of portions in a week', 'Amount', 'Operation'];
-const subHeaders = ['Mon-Boiled','Wed-Boiled','Fri-Fried']; // Thêm sub-headers
+const subHeaders = ['Monday','Wednesday','Friday']; // Thêm sub-headers
 
 
 const Lunch = ({ productList, onQuantityChange, onQuantityUpdate, onOptionChange, onFocus }) => {

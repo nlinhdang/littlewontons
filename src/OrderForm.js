@@ -54,9 +54,11 @@ const OrderForm = ({ totalAmount, productList }) => {
       if (response.ok) { // Kiểm tra xem phản hồi có thành công không
         if (totalAmount !== 0) {
           const data = await response.json();
+          console.log('Order Data to send:', orderData);
           console.log('Response from server:', data);
           alert('Successfully order'); // Cập nhật thông báo thành công
-          setFormData({ name: '', phone: '', note: '' }); // Reset form nếu cần
+          // setFormData({ name: '', phone: '', note: '' });
+          // Reset form nếu cần
         } else {
           alert('Oops... It looks like no products were selected. Please check again!');
         } 
