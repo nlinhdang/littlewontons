@@ -39,9 +39,9 @@ const OrderForm = ({ totalAmount, productList }) => {
     };
 
     // Uncomment to send data to the server
-    /*
+    
     try {
-      const response = await fetch('https://your-api-url.com/submit-order', {
+      const response = await fetch('https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZkMDYzMTA0MzE1MjZjNTUzNDUxMzci_pc', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ const OrderForm = ({ totalAmount, productList }) => {
     } catch (error) {
       console.error('Error sending data to server:', error);
     }
-    */
+    
   };
 
   function handleNote(e, textarea) {
