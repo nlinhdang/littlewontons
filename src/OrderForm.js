@@ -12,6 +12,8 @@ const OrderForm = ({ totalAmount, productList }) => {
     note: '', // Thêm note vào formData
   });
 
+  // const [successMessage, setSuccessMessage] = useState('');
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -49,13 +51,25 @@ const OrderForm = ({ totalAmount, productList }) => {
         body: JSON.stringify(orderData),
       });
 
-      const data = await response.json();
-      console.log('Response from server:', data);
-    } catch (error) {
-      console.error('Error sending data to server:', error);
-    }
+      if (response.ok) { // Kiểm tra xem phản hồi có thành công không
+        if (totalAmount !== 0) {
+          const data = await response.json();
+          console.log('Response from server:', data);
+          alert('Successfully order'); // Cập nhật thông báo thành công
+          setFormData({ name: '', phone: '', note: '' }); // Reset form nếu cần
+        } else {
+          alert('Oops... It looks like no products were selected. Please check again!');
+        } 
+        } else {
+          console.error('Error sending data to server:', response.statusText);
+          alert('Order unsuccessful. Please try again or reach me out via WhatsApp 0986289155 to place your order directly'); // Thông báo lỗi
+        }
+      } catch (error) {
+        console.error('Error sending data to server:', error);
+        alert('Order unsuccessful. Please try again or reach me out via WhatsApp 0986289155 to place your order directly'); // Thông báo lỗi
+      }
     
-  };
+  }
 
   function handleNote(e, textarea) {
     textarea.style.height = 'auto'; // Đặt chiều cao về auto để đo chiều cao mới
@@ -81,53 +95,57 @@ const OrderForm = ({ totalAmount, productList }) => {
           onInput={(e) => handleNote(e, e.target)}
         />
       </div>
-      <div className="container payment-form required">
-        <div className='order-form'>
-          <h1>Order Form</h1>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="name">Name:</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </div>
 
-            <div>
-              <label htmlFor="phone">Phone:</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                required
-              />
+      <div className="container payment-form required">
+          <form onSubmit={handleSubmit} className='order-form'>
+
+            <div className="order-details">
+              <div className='contact-info'>
+                <h1>Contact Info</h1>
+                <div className='name'>
+                <label htmlFor="name">Name <span style={{color:'red'}}>*</span></label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <div className='phone'>
+                <label htmlFor="phone">Phone <span style={{color:'red'}}>*</span></label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              </div>
+
+              <div className="payment-info">
+                <h3>Your total bill: {formatNumber(totalAmount)}</h3>
+                <div className='bank-info'>
+                  <div>
+                    <h4>Transfer to:</h4>
+                    <p>DANG THI NGOC LINH</p>
+                    <p>104871546592</p>
+                    <p>VietinBank</p>
+                  </div>
+                  <img src={payment} alt='payment' className='payment-photo' />
+                </div>
+              </div> 
+            </div>
+          
+            <div className="submit-button">
+              <button type="submit">Submit Order</button>
             </div>
           </form>
         </div>
-
-        <div className="payment">
-          <h3>Your total bill: {formatNumber(totalAmount)}</h3>
-          <div className='bank-info'>
-            <div>
-              <h4>Transfer to:</h4>
-              <p>DANG THI NGOC LINH</p>
-              <p>104871546592</p>
-              <p>VietinBank</p>
-            </div>
-            <img src={payment} alt='payment' className='payment-photo' />
-          </div>
-        </div>
-      </div>
-
-      <div className="submit-button">
-        <button type="submit">Submit Order</button>
-      </div>
     </>
   );
 };

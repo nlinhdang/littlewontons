@@ -395,27 +395,22 @@ label input[type="radio"] {
     /* Ngăn chặn việc thay đổi kích thước bằng tay */
     overflow: hidden;
 }
-.order-form {
-  width:30%;
-  /* margin-right: 10% */
+
+.order-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.container.payment-form {
-  display: flex;
-  justify-content: space-between
-}
 .bank-info {
   display: flex;
-  gap: 10%;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
 }
 .payment-photo{
   max-width: 250px;
   /* margin-left: 5% */
-}
-.bank-info {
-  /* width: 50%; */
-  align-items: center;
-  flex-direction: row;
 }
 
 .input[type="number"]::-webkit-outer-spin-button,
@@ -468,8 +463,15 @@ input[type="number"] {
   transform-origin: bottom;
   /* Điểm giữa của phần tử giữ nguyên */
 }
-
-@media (max-width: 700px) {
+@media (min-width: 481px) {
+  .contact-info {
+    width: 35%
+  }
+  .order-details {
+    padding-top: 20px;
+  }
+}
+@media (max-width: 480px) {
   
   .container {
     /* border: blue 5px solid; */
@@ -574,5 +576,10 @@ input[type="number"] {
   .note-input {
     font-size: 0.65rem
   }
-  
+  .order-details {
+  display: block;
+  }
+  .bank-info {
+    font-size: 0.7rem
+  }
 }
