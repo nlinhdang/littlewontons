@@ -57,9 +57,12 @@ const OrderForm = ({ totalAmount, productList }) => {
           console.log('Order Data to send:', orderData);
           console.log('Response from server:', data);
           alert(`Thanks for your order !! We will contact you on WhatsApp when your Wontons have arrived
-            `); // Cập nhật thông báo thành công
+            `); 
           // setFormData({ name: '', phone: '', note: '' });
           // Reset form nếu cần
+          
+          // Tải lại trang sau khi người dùng nhấn "OK"
+        window.location.reload(); 
         } else {
           alert('Oops... It looks like no products were selected. Please check again!');
         } 
