@@ -56,7 +56,8 @@ const OrderForm = ({ totalAmount, productList }) => {
           const data = await response.json();
           console.log('Order Data to send:', orderData);
           console.log('Response from server:', data);
-          alert('Successfully order'); // Cập nhật thông báo thành công
+          alert(`Thanks for your order !! We will contact you on WhatsApp when your Wontons have arrived
+            `); // Cập nhật thông báo thành công
           // setFormData({ name: '', phone: '', note: '' });
           // Reset form nếu cần
         } else {
