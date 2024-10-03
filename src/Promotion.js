@@ -5,7 +5,7 @@ const Promotion = () => {
         color: 'red',
         fontSize: '0.8rem'
       }}>
-        Special FROZEN offer: 10% extra for existing custuomer from 1.10 to 16.10
+        Special FROZEN offer: <span style={{fontSize: '1.1rem'}}>10%</span> extra for existing customers from 1/10 to 16/10
       </p>
     </div>
   );
