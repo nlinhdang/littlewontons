@@ -40,6 +40,9 @@ const OrderForm = ({ totalAmount, productList }) => {
       note,
     };
 
+        // window.location.href = 'success.html';
+
+
     // Uncomment to send data to the server
     
     try {
@@ -56,13 +59,7 @@ const OrderForm = ({ totalAmount, productList }) => {
           const data = await response.json();
           console.log('Order Data to send:', orderData);
           console.log('Response from server:', data);
-          alert(`Thanks for your order !! We will contact you on WhatsApp when your Wontons have arrived
-            `); 
-          // setFormData({ name: '', phone: '', note: '' });
-          // Reset form nếu cần
-          
-          // Tải lại trang sau khi người dùng nhấn "OK"
-        window.location.reload(); 
+        window.location.href = 'success.html';
         } else {
           alert('Oops... It looks like no products were selected. Please check again!');
         } 
