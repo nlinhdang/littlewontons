@@ -158,13 +158,15 @@ h1 {
   background-color: #f0bf65;
 }
 
-.delivery-section p,
-.delivery-location p {
+.delivery-section {
+  padding-left: 20px
+}
+
+.delivery-section p {
   font-size: 0.9rem;
   padding-bottom: 10px
 }
-.delivery-location label,
-.delivery-time label {
+.delivery-section label {
   display: flex;
   align-items: center;
   font-size: 0.85rem;
@@ -172,10 +174,8 @@ h1 {
   /* margin-bottom: 15px; */
 }
 
-.delivery-location input[type="radio"],
-.delivery-time input[type="radio"] {
+.delivery-section input[type="radio"] {
   margin-right: 5px;
-  /* margin-bottom: 5px; */
 }
 
 /* Order form styling */
@@ -350,14 +350,6 @@ h3 {
   margin-left: 5px;
 }
 
-label input[type="radio"] {
-  margin-right: 5px;
-}
-
-.delivery-section {
-  padding-left: 20px
-}
-
 .note-container {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -440,21 +432,22 @@ input[type="number"] {
   transform-origin: bottom;
   /* Điểm giữa của phần tử giữ nguyên */
 }
-@media (min-width: 481px) {
+@media (min-width: 481px) { /* large screen */
   .contact-info {
     width: 35%;
+    font-size: 0.9rem;
   }
   .order-details {
     padding-top: 20px;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 480px) { /* small screen */
   html {
       font-size: 10px;
-      /* Khi màn hình nhỏ hơn 768px, 1rem = 10px */
     }
   .contact-info {
     font-size: 1.1rem;
+    padding-bottom: 10px
   }
   .container {
     padding-left: 1px;
@@ -494,9 +487,12 @@ input[type="number"] {
     margin-bottom: 10px;
   }
 
-  .delivery-section label,
-  .delivery-location label {
+  .delivery-section label {
     margin-bottom: 0;
+  }
+
+  .delivery-section input[type="radio"] {
+    transform: scale(75%);
   }
 
   .total {
