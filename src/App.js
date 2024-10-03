@@ -8,6 +8,7 @@ import ProductTable from './ProductTable';
 import './style.css';
 import React, { useState } from 'react';
 import { AppProvider } from './AppContext';
+import Promotion from './Promotion';
 
 const products = [
   {
@@ -71,7 +72,7 @@ function App() {
           </div>
         </div>
         <div className="product-table">
-         
+                   
           {isClicked && <ProductTable products={products} />}
 
           

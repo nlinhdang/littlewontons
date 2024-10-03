@@ -1,6 +1,7 @@
 import React from 'react';
 import { formatNumber, calculateAmount } from './utils';
 import { useAppContext } from './AppContext';
+import Promotion from './Promotion';
 
 const frozenHeaders = ['Product', '10 pieces', 'Pieces', 'Amount', 'Operation'];
 
@@ -18,6 +19,7 @@ const Frozen = ({ productList, onQuantityChange, onQuantityUpdate, onFocus }) =>
   return (
     <div className="container">
       <h1>Frozen wontons</h1>
+      <Promotion />
       <div className="grid-container frozen">
         {frozenHeaders.map((header, index) => (
           <div className="grid-header" key={index}>{header}</div>

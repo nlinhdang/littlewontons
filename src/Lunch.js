@@ -47,6 +47,10 @@ const Lunch = ({ productList, onQuantityChange, onQuantityUpdate, onOptionChange
   return (
     <div className="container">
       <h1>Lunch box</h1>
+
+      <div className="lunch-note">
+        To give me enough time to prepare your delicious lunch, please place your order by 6 PM the day before. If it's after 6 PM, no worries — I'll treat it as an order for next week's delivery!
+      </div>
       
       <div className="num-weeks">
         <label>

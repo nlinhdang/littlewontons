@@ -136,18 +136,18 @@ h1 {
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #ddd;
-  font-size: 10px;
+  
 }
 
 .grid-item {
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 /* Total amount styling */
 .total,
 .totalAmount {
-  font-size: 18px;
+  font-size: 1.1rem;
   font-weight: bold;
   text-align: right;
   margin-top: 10px;
@@ -166,7 +166,7 @@ h1 {
 .delivery-location label,
 .delivery-time label {
   display: block;
-  font-size: 14px;
+  font-size: 0.85rem;
   margin-bottom: 5px;
 }
 
@@ -196,7 +196,7 @@ input {
   padding: 3px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  font-size: 13px;
+  font-size: 0.8rem;
 }
 
 .submit-button button {
@@ -206,8 +206,8 @@ input {
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
-  margin: auto
+  margin: auto;
+  font-size: 1.1rem;
 }
 
 button[type="submit"]:hover {
@@ -220,6 +220,7 @@ button[type="submit"]:hover {
   font-weight: bold;
   background-color: #d9d9d9;
   text-align: center;
+  font-size: 0.55rem
 }
 
 .number-of-portions-header {
@@ -240,7 +241,7 @@ button[type="submit"]:hover {
 .grid-subheader {
   text-align: center;
   font-weight: 600;
-  font-size: 13px
+  font-size: 0.8rem
 }
 
 .empty-space {
@@ -265,7 +266,7 @@ button[type="submit"]:hover {
   border: 1px solid #ddd;
   padding: 5px 10px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 0.8rem;
   border-radius: 0%;
   /* box-sizing: border-box; */
 }
@@ -297,35 +298,17 @@ button[type="submit"]:hover {
   border: none;
   padding: 5px 10px;
   cursor: pointer;
+  font-size: 0.8rem
 }
 
 .total {
   font-weight: bold;
-  font-size: 18px;
   text-align: right;
 }
 
 .delivery-section {
   border-bottom: 1px solid #ccc;
   border-top: none
-}
-
-.product-options {
-  margin-bottom: 20px;
-}
-
-.product-options p {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.product-options label {
-  display: block;
-  margin-bottom: 10px;
-}
-
-.product-options input {
-  margin-right: 5px;
 }
 
 .frozen-section,
@@ -340,7 +323,7 @@ button[type="submit"]:hover {
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 1.2rem;
   margin-bottom: 10px;
 }
 
@@ -349,32 +332,22 @@ h3 {
   justify-content: space-between;
 }
 
-.order-type {
-  display: flex;
-  padding-bottom: 10px;
-  font-size: 18px;
-  gap: 20px
-}
 
 .num-weeks{
-  margin: -12px;
-  font-size: 14px;
+  font-size: 0.85rem;
   margin-bottom: 10px;
   text-align: center;
 }
 
 .num-weeks input {
   text-align: center;
-  /* height: 12px; */
   max-width: 30px;
-  font-size: 13px;
+  font-size: 0.8rem;
   margin-left: 5px;
-  /* padding: 2px; */
 }
 
 label input[type="radio"] {
   margin-right: 5px;
-  /* Khoảng cách giữa radio button và văn bản */
 }
 
 .delivery-section {
@@ -392,9 +365,7 @@ label input[type="radio"] {
   border:1px solid #ddd;
   border-radius: 5px;
   resize: vertical;
-  /* resize: none; */
-    /* Ngăn chặn việc thay đổi kích thước bằng tay */
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .order-details {
@@ -408,6 +379,7 @@ label input[type="radio"] {
   align-items: center;
   flex-direction: row;
   justify-content: space-around;
+  font-size: 0.8rem;
 }
 .payment-photo{
   max-width: 250px;
@@ -473,18 +445,17 @@ input[type="number"] {
   }
 }
 @media (max-width: 480px) {
+  html {
+      font-size: 10px;
+      /* Khi màn hình nhỏ hơn 768px, 1rem = 10px */
+    }
   
   .container {
-    /* border: blue 5px solid; */
     padding-left: 1px;
     padding-right: 2px
   }
-  .grid-header {
-    /* display: none; */
-    font-size: 6px;
-  }
+  
   .grid-item {
-    font-size: 10px;
     padding: 0;
     margin: 0
   }
@@ -504,39 +475,26 @@ input[type="number"] {
   }
 
   .reset-button {
-    font-size: 8px;
     padding: 2px;
   }
   .quantity-button,
   .quantity-input {
-    font-size: 10px;
     padding: 0 3px
     }
 
-  .grid-subheader {
-    font-size: 7px
-  }
+  
   h1 {
-    font-size: 17px;
     margin-top: 20px;
     margin-bottom: 10px;
   }
 
-  label {
-    font-size: 10px
-  }
   .delivery-section label,
   .delivery-location label {
-    font-size: 11px;
     margin-bottom: 0;
-  }
-  .delivery-section p,
-  .delivery-location p {
-    font-size: 10px;
   }
 
   .total {
-    font-size: 13px;
+    /* font-size: 13px; */
   }
   .container.payment-form {
     display: block;
@@ -549,38 +507,31 @@ input[type="number"] {
     width: 100%;
     /* margin-right: 10% */
   }
-  h3 {
-    font-size: 13px;
-  padding-top: 10px
-}
-  .payment h4 {
-    font-size: 10px;
-  }
-
-  .payment p {
-    font-size: 11px;
-  }
-  input {
-  font-size: 10px;
-  }
 
   .num-weeks input {
     width: 30px;
-    font-size: 10px;
     padding: 2px
   }
   .submit-button button {
-    font-size: 12px;
     padding: 7px;
     margin-top: 5px
-  }
-  .note-input {
-    font-size: 0.65rem
   }
   .order-details {
   display: block;
   }
-  .bank-info {
-    font-size: 0.7rem
-  }
+  
+}
+
+.promotion-container{
+  display: flex;
+  margin-bottom: 10px;
+
+}
+.promotion-container p {
+  margin: auto
+}
+.lunch-note {
+  font-size: 0.8rem;
+  margin-top: -12px;
+  color: #da8d00;
 }
