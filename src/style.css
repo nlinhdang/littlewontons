@@ -165,14 +165,17 @@ h1 {
 }
 .delivery-location label,
 .delivery-time label {
-  display: block;
+  display: flex;
+  align-items: center;
   font-size: 0.85rem;
-  margin-bottom: 5px;
+  padding-bottom: 3px;
+  /* margin-bottom: 15px; */
 }
 
 .delivery-location input[type="radio"],
 .delivery-time input[type="radio"] {
-  margin-right: 10px;
+  margin-right: 5px;
+  /* margin-bottom: 5px; */
 }
 
 /* Order form styling */
@@ -308,7 +311,8 @@ button[type="submit"]:hover {
 
 .delivery-section {
   border-bottom: 1px solid #ccc;
-  border-top: none
+  border-top: none;
+  padding-bottom: 5px
 }
 
 .frozen-section,
@@ -438,7 +442,7 @@ input[type="number"] {
 }
 @media (min-width: 481px) {
   .contact-info {
-    width: 35%
+    width: 35%;
   }
   .order-details {
     padding-top: 20px;
@@ -449,7 +453,9 @@ input[type="number"] {
       font-size: 10px;
       /* Khi màn hình nhỏ hơn 768px, 1rem = 10px */
     }
-  
+  .contact-info {
+    font-size: 1.1rem;
+  }
   .container {
     padding-left: 1px;
     padding-right: 2px
