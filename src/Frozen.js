@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { formatNumber, calculateAmount } from './utils';
 import { useAppContext } from './AppContext';
 import Promotion from './Promotion';
@@ -8,7 +8,7 @@ const frozenHeaders = ['Product', '10 pieces', 'Pieces', 'Amount', 'Operation'];
 
 const Frozen = ({ productList, onQuantityChange, onQuantityUpdate, onFocus }) => {
 
-  const {deliveryLocation, setDeliveryLocation} = useAppContext();
+  const {deliveryLocation, setDeliveryLocation, setTotalFrozenAmount} = useAppContext();
 
   const handleDeliveryLocationChange = (event) => {
     setDeliveryLocation(event.target.value);
@@ -16,13 +16,18 @@ const Frozen = ({ productList, onQuantityChange, onQuantityUpdate, onFocus }) =>
 
   const totalFrozenAmount = productList.reduce((sum, product) => sum + calculateAmount(product.frozenPrice, product.frozenQuantity, 100), 0);
 
+  // Sử dụng useEffect để cập nhật giá trị totalFrozenAmount vào App Context
+  useEffect(() => {
+    setTotalFrozenAmount(totalFrozenAmount);
+  }, [totalFrozenAmount, setTotalFrozenAmount]);
+
   return (
     <div className="container">
       <h1>Frozen wontons</h1>
       <Promotion />
       <div className="grid-container frozen">
         {frozenHeaders.map((header, index) => (
-          <div className="grid-header" key={index}>{header}</div>
+          <div className={`grid-header header${index}`} key={index}>{header}</div>
         ))}
 
         {productList.map((product, index) => (
@@ -53,7 +58,7 @@ const Frozen = ({ productList, onQuantityChange, onQuantityUpdate, onFocus }) =>
         ))}
       </div>
 
-      <div className="total">Frozen - Total: {formatNumber(totalFrozenAmount)}</div>
+      <div className="total">Frozen bill: {formatNumber(totalFrozenAmount)}</div>
       
       {/* Delivery Location Section */}
       <div className="delivery-section delivery-location">

@@ -5,6 +5,7 @@ import Lunch from './Lunch';
 import OrderForm from './OrderForm';  // Import OrderForm
 import { calculateAmount, calculateTotalFrozenAmount } from './utils';
 import { useAppContext } from './AppContext';
+import OrderPreview from './OrderPreview';
 
 const ProductTable = ({ products }) => {
   const [productList, setProductList] = useState(products);
@@ -69,7 +70,8 @@ const ProductTable = ({ products }) => {
             onQuantityUpdate={handleQuantityUpdate}
             onOptionChange={handleOptionChange}
             onFocus={handleOnFocus}
-          />
+        />
+        <OrderPreview totalAmount={totalAmount}/>
         <OrderForm totalAmount={totalAmount} productList={ productList } />
         </>
       {/* )} */}

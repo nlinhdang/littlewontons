@@ -243,7 +243,7 @@ button[type="submit"]:hover {
 .grid-subheader {
   text-align: center;
   font-weight: 600;
-  font-size: 0.8rem
+  font-size: 0.65rem
 }
 
 .empty-space {
@@ -440,99 +440,124 @@ input[type="number"] {
     padding-top: 20px;
   }
 }
+@media (max-width: 650px) { /* medium screen */
+
+  html {
+      font-size: 14px;
+    }
+.contact-info {
+  font-size: 1.1rem;
+  padding-bottom: 10px
+}
+
+.container {
+  padding-left: 1px;
+  padding-right: 2px
+}
+
+.grid-item {
+  padding: 0;
+  margin: 0
+}
+
+.grid-container {
+  gap: 1px;
+  padding: 0px;
+}
+
+.header3,
+.amount {
+  display: none;
+}
+
+.grid-container.frozen {
+  /* grid-template-columns: 3fr 2fr 3fr 1fr 1fr; */
+  grid-template-columns: minmax(75px, 3fr) minmax(25px, 1fr) minmax(50px, 2fr) minmax(25px, 1fr);
+}
+
+.grid-container.cooked {
+  /* grid-template-columns: 2fr 1fr 4fr 1fr 1fr; */
+  grid-template-columns: minmax(70px, 4fr) minmax(25px, 1fr) minmax(125px, 3fr) minmax(25px, 1.5fr);
+  /* gap: 5px; */
+}
+
+.reset-button {
+  padding: 2px;
+}
+
+.quantity-button,
+.quantity-input {
+  padding: 0 3px
+}
+
+
+h1 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.delivery-section label {
+  margin-bottom: 0;
+}
+
+.delivery-section input[type="radio"] {
+  transform: scale(75%);
+}
+
+.total {
+  /* font-size: 13px; */
+}
+
+.container.payment-form {
+  display: block;
+  margin: auto;
+  width: 75%
+    /* justify-content: space-between */
+}
+
+.order-form {
+  margin: auto;
+  width: 100%;
+  /* margin-right: 10% */
+}
+
+.num-weeks input {
+  width: 30px;
+  padding: 2px
+}
+
+.submit-button button {
+  padding: 7px;
+  margin-top: 5px
+}
+
+.order-details {
+  display: block;
+}
+  }
+
 @media (max-width: 480px) { /* small screen */
   html {
-      font-size: 10px;
+      font-size: 12px;
     }
-  .contact-info {
-    font-size: 1.1rem;
-    padding-bottom: 10px
-  }
-  .container {
-    padding-left: 1px;
-    padding-right: 2px
-  }
-  
-  .grid-item {
-    padding: 0;
-    margin: 0
-  }
-  .grid-container {
-    gap: 1px;
-    padding: 0px;
-  }
-  .grid-container.frozen {
-    /* grid-template-columns: 3fr 2fr 3fr 1fr 1fr; */
-    grid-template-columns: minmax(75px, 4fr) minmax(25px, 1fr) minmax(50px, 2fr) minmax(25px, 1fr) minmax(25px, 1fr);
-  }
-
-  .grid-container.cooked {
-    /* grid-template-columns: 2fr 1fr 4fr 1fr 1fr; */
-    grid-template-columns: minmax(70px, 3fr) minmax(25px, 1fr) minmax(125px, 4fr) minmax(25px, 1fr) minmax(25px, 1fr);
-    /* gap: 5px; */
-  }
-
-  .reset-button {
-    padding: 2px;
-  }
-  .quantity-button,
-  .quantity-input {
-    padding: 0 3px
-    }
-
-  
-  h1 {
-    margin-top: 20px;
-    margin-bottom: 10px;
-  }
-
-  .delivery-section label {
-    margin-bottom: 0;
-  }
-
-  .delivery-section input[type="radio"] {
-    transform: scale(75%);
-  }
-
-  .total {
-    /* font-size: 13px; */
-  }
-  .container.payment-form {
-    display: block;
-    margin: auto;
-    width: 75%
-    /* justify-content: space-between */
-  }
-  .order-form {
-    margin: auto;
-    width: 100%;
-    /* margin-right: 10% */
-  }
-
-  .num-weeks input {
-    width: 30px;
-    padding: 2px
-  }
-  .submit-button button {
-    padding: 7px;
-    margin-top: 5px
-  }
-  .order-details {
-  display: block;
-  }
   
 }
 
-.promotion-container{
-  display: flex;
-  margin-bottom: 10px;
-
-}
-.promotion-container p {
-  margin: auto
-}
 .lunch-note {
   font-size: 0.8rem;
   margin-top: -12px;
   color: #da8d00;
+}
+
+.promotion-container p {
+  color: red;
+  margin: auto;
+  font-size: 0.8rem;
+    
+}
+
+.promotion-container {
+  display: flex;
+  margin-bottom: 10px;
+  flex-direction: column;
 }

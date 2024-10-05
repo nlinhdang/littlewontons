@@ -1,7 +1,7 @@
 import { useAppContext } from './AppContext';
 import React, { useState } from 'react';
 import payment from './img/payment.png';
-import { formatNumber, formatSubmissionTime } from './utils';
+import { formatSubmissionTime } from './utils';
 
 const OrderForm = ({ totalAmount, productList }) => {
   const [note, setNote] = useState('');
@@ -62,7 +62,7 @@ const OrderForm = ({ totalAmount, productList }) => {
           const data = await response.json();
           console.log('Order Data to send:', orderData);
           console.log('Response from server:', data);
-        window.location.href = 'success.html';
+          window.location.href = 'success.html';
         } else {
           alert('Oops... It looks like no products were selected. Please check again!');
         } 
@@ -105,6 +105,7 @@ const OrderForm = ({ totalAmount, productList }) => {
       <div className="container payment-form required">
           <form onSubmit={handleSubmit} className='order-form'>
 
+            
             <div className="order-details">
               <div className='contact-info'>
                 <h1>Contact Info</h1>
@@ -134,7 +135,7 @@ const OrderForm = ({ totalAmount, productList }) => {
               </div>
 
               <div className="payment-info">
-                <h3>Your total bill: {formatNumber(totalAmount)}</h3>
+                
                 <div className='bank-info'>
                   <div>
                     <h4>Transfer to:</h4>

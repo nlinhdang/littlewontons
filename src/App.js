@@ -8,7 +8,6 @@ import ProductTable from './ProductTable';
 import './style.css';
 import React, { useState } from 'react';
 import { AppProvider } from './AppContext';
-import Promotion from './Promotion';
 
 const products = [
   {

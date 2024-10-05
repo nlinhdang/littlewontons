@@ -66,7 +66,7 @@ const Lunch = ({ productList, onQuantityChange, onQuantityUpdate, onOptionChange
 
       <div className="grid-container cooked">
         {cookedHeaders.map((header, index) => (
-          <div className={`grid-header ${index === 2 ? 'number-of-portions-header' : ''}`} key={index}>{header}</div>
+          <div className={`grid-header header${index} ${index === 2 ? 'number-of-portions-header' : ''}`} key={index}>{header}</div>
         ))}
 
         {/* Sub-header chỉ cho cột "Number of portions in a week" */}
@@ -155,7 +155,7 @@ const Lunch = ({ productList, onQuantityChange, onQuantityUpdate, onOptionChange
         ))}
       </div>
 
-      <div className="total">Lunch - Total: {formatNumber(totalCookedAmountWeeks)}</div>
+      <div className="total">Lunch bill: {formatNumber(totalCookedAmountWeeks)}</div>
       
       {/* Delivery Time Section */}
       <div className="delivery-section delivery-time">
