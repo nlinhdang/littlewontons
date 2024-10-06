@@ -4,29 +4,29 @@ import { formatNumber, calculateAmount } from './utils';
 import { useAppContext } from './AppContext';
 
 const cookedHeaders = ['Product', 'Price', 'Number of portions in a week', 'Amount', 'Operation'];
-const subHeaders = ['Monday','Wednesday','Friday']; // Thêm sub-headers
+const subHeaders = ['Monday', 'Wednesday', 'Friday']; // Thêm sub-headers
 
 
 const Lunch = ({ productList, onQuantityChange, onQuantityUpdate, onOptionChange, onFocus }) => {
-  const {deliveryTime, setDeliveryTime, numWeeks, setNumWeeks, setTotalCookedAmountWeeks } = useAppContext();
+  const { deliveryTime, setDeliveryTime, numWeeks, setNumWeeks, setTotalCookedAmountWeeks } = useAppContext();
 
-  const calculateCookedAmount = (cookedPrice, monBoiledQuantity, wedBoiledQuantity, friedQuantity) => {
-    return(calculateAmount(cookedPrice, monBoiledQuantity, 1000)
-                + calculateAmount(cookedPrice, wedBoiledQuantity, 1000)
-                + calculateAmount(cookedPrice, friedQuantity, 1000));
+  const calculateCookedAmount = (cookedPrice, monBoiledQuantity, wedBoiledQuantity, friBoiledQuantity) => {
+    return (calculateAmount(cookedPrice, monBoiledQuantity, 1000)
+      + calculateAmount(cookedPrice, wedBoiledQuantity, 1000)
+      + calculateAmount(cookedPrice, friBoiledQuantity, 1000));
   }
   // Calculate total cooked amount
   const totalCookedAmount1week = productList.reduce((sum, product) => {
-  // Gọi calculateCookedAmount cho từng sản phẩm và cộng dồn vào tổng
-  const productAmount = calculateCookedAmount(
-    product.cookedPrice,
-    product.monBoiledQuantity,
-    product.wedBoiledQuantity,
-    product.friedQuantity
-  );
+    // Gọi calculateCookedAmount cho từng sản phẩm và cộng dồn vào tổng
+    const productAmount = calculateCookedAmount(
+      product.cookedPrice,
+      product.monBoiledQuantity,
+      product.wedBoiledQuantity,
+      product.friBoiledQuantity
+    );
     return sum + productAmount;
   }, 0);
-  
+
   const handleNumWeeksChange = (e) => {
     setNumWeeks(Number(e.target.value));
   };
@@ -51,7 +51,7 @@ const Lunch = ({ productList, onQuantityChange, onQuantityUpdate, onOptionChange
       <div className="lunch-note">
         To give me enough time to prepare your delicious lunch, please place your order by 6 PM the day before. If it's after 6 PM, no worries — I'll treat it as an order for next week's delivery!
       </div>
-      
+
       <div className="num-weeks">
         <label>
           Number of weeks:
@@ -123,31 +123,31 @@ const Lunch = ({ productList, onQuantityChange, onQuantityUpdate, onOptionChange
               </label>
 
               <label>
-                {/* <p className="day-label">Friday - Fried</p> */}
+                {/* <p className="day-label">Friday - Fri</p> */}
                 <div className="quantity">
-                  <button className="quantity-button quantity-button-decrease" onClick={() => onQuantityUpdate(index, -1, 'friedQuantity')}>-</button>
+                  <button className="quantity-button quantity-button-decrease" onClick={() => onQuantityUpdate(index, -1, 'friBoiledQuantity')}>-</button>
                   <input
                     type="number"
                     min="0"
                     step="1"
-                    value={product.friedQuantity || ''}
-                    onChange={(e) => onQuantityChange(index, e.target.value, 'friedQuantity')}
-                    onFocus={() => onFocus(index, 'friedQuantity')}
+                    value={product.friBoiledQuantity || ''}
+                    onChange={(e) => onQuantityChange(index, e.target.value, 'friBoiledQuantity')}
+                    onFocus={() => onFocus(index, 'friBoiledQuantity')}
                     placeholder="0"
                     className="quantity-input"
                   />
-                  <button className="quantity-button quantity-button-increase" onClick={() => onQuantityUpdate(index, 1, 'friedQuantity')}>+</button>
+                  <button className="quantity-button quantity-button-increase" onClick={() => onQuantityUpdate(index, 1, 'friBoiledQuantity')}>+</button>
                 </div>
               </label>
             </div>
             <div className="grid-item amount">
-              {formatNumber(calculateCookedAmount(product.cookedPrice, product.monBoiledQuantity, product.wedBoiledQuantity, product.friedQuantity))}
+              {formatNumber(calculateCookedAmount(product.cookedPrice, product.monBoiledQuantity, product.wedBoiledQuantity, product.friBoiledQuantity))}
             </div>
 
             <button className="grid-item reset-button" onClick={() => {
               onFocus(index, 'monBoiledQuantity');
               onFocus(index, 'wedBoiledQuantity');
-              onFocus(index, 'friedQuantity');
+              onFocus(index, 'friBoiledQuantity');
             }}>
               {product.operation}
             </button>
@@ -156,7 +156,7 @@ const Lunch = ({ productList, onQuantityChange, onQuantityUpdate, onOptionChange
       </div>
 
       <div className="total">Lunch bill: {formatNumber(totalCookedAmountWeeks)}</div>
-      
+
       {/* Delivery Time Section */}
       <div className="delivery-section delivery-time">
         <p>Select Delivery Time:</p>

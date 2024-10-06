@@ -49,7 +49,7 @@ function App() {
   return (
     <AppProvider>
       <div className={`container ${isClicked ? 'clicked' : ''}`}>
-        <div className={`img-container ${isClicked ? 'clicked' : 'centered'}`}> 
+        <div className={`img-container ${isClicked ? 'clicked' : 'centered'}`}>
 
           <div className={`logo-container ${isClicked ? 'logo-block' : ''}`}>
             <img
@@ -71,13 +71,13 @@ function App() {
           </div>
         </div>
         <div className="product-table">
-                   
+
           {isClicked && <ProductTable products={products} />}
 
-          
+
         </div>
-    </div>
-      
+      </div>
+
     </AppProvider>
   );
 }

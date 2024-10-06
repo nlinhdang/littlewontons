@@ -57,23 +57,23 @@ const ProductTable = ({ products }) => {
 
   return (
     <div className="container">
-        <>
-          <Frozen
-            productList={productList}
-            onQuantityChange={handleQuantityChange}
-            onQuantityUpdate={handleQuantityUpdate}
-            onFocus={handleOnFocus}
-          />
-          <Lunch
-            productList={productList}
-            onQuantityChange={handleQuantityChange}
-            onQuantityUpdate={handleQuantityUpdate}
-            onOptionChange={handleOptionChange}
-            onFocus={handleOnFocus}
+      <>
+        <Frozen
+          productList={productList}
+          onQuantityChange={handleQuantityChange}
+          onQuantityUpdate={handleQuantityUpdate}
+          onFocus={handleOnFocus}
         />
-        <OrderPreview totalAmount={totalAmount}/>
-        <OrderForm totalAmount={totalAmount} productList={ productList } />
-        </>
+        <Lunch
+          productList={productList}
+          onQuantityChange={handleQuantityChange}
+          onQuantityUpdate={handleQuantityUpdate}
+          onOptionChange={handleOptionChange}
+          onFocus={handleOnFocus}
+        />
+        <OrderPreview totalAmount={totalAmount} productList={productList} />
+        <OrderForm totalAmount={totalAmount} productList={productList} />
+      </>
       {/* )} */}
     </div>
   );
