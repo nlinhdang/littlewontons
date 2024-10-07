@@ -1,4 +1,4 @@
-// src/ProductTable.js
+// src/OrderPage.js
 import React, { useState } from 'react';
 import Frozen from './Frozen';
 import Lunch from './Lunch';
@@ -6,8 +6,9 @@ import OrderForm from './OrderForm';  // Import OrderForm
 import { calculateAmount, calculateTotalFrozenAmount } from './utils';
 import { useAppContext } from './AppContext';
 import OrderPreview from './OrderPreview';
+import Note from './Note';
 
-const ProductTable = ({ products }) => {
+const OrderPage = ({ products }) => {
   const [productList, setProductList] = useState(products);
   // const [selectedOption, setSelectedOption] = useState();
 
@@ -55,6 +56,18 @@ const ProductTable = ({ products }) => {
     });
   };
 
+  const handleClearAll = (types) => {
+  setProductList(prevProductList => 
+    prevProductList.map(product => {
+      const updatedProduct = { ...product };
+      types.forEach(type => {
+        updatedProduct[type] = 0; // Đặt giá trị của mỗi type về 0
+      });
+      return updatedProduct;
+    })
+  );
+};
+
   return (
     <div className="container">
       <>
@@ -63,6 +76,7 @@ const ProductTable = ({ products }) => {
           onQuantityChange={handleQuantityChange}
           onQuantityUpdate={handleQuantityUpdate}
           onFocus={handleOnFocus}
+          onClearAll={handleClearAll}
         />
         <Lunch
           productList={productList}
@@ -70,7 +84,9 @@ const ProductTable = ({ products }) => {
           onQuantityUpdate={handleQuantityUpdate}
           onOptionChange={handleOptionChange}
           onFocus={handleOnFocus}
+          onClearAll={handleClearAll}
         />
+        <Note />
         <OrderPreview totalAmount={totalAmount} productList={productList} />
         <OrderForm totalAmount={totalAmount} productList={productList} />
       </>
@@ -79,4 +95,4 @@ const ProductTable = ({ products }) => {
   );
 };
 
-export default ProductTable;
+export default OrderPage;

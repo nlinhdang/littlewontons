@@ -7,7 +7,7 @@ const cookedHeaders = ['Product', 'Price', 'Number of portions in a week', 'Amou
 const subHeaders = ['Monday', 'Wednesday', 'Friday']; // Thêm sub-headers
 
 
-const Lunch = ({ productList, onQuantityChange, onQuantityUpdate, onOptionChange, onFocus }) => {
+const Lunch = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onClearAll }) => {
   const { deliveryTime, setDeliveryTime, numWeeks, setNumWeeks, setTotalCookedAmountWeeks } = useAppContext();
 
   const calculateCookedAmount = (cookedPrice, monBoiledQuantity, wedBoiledQuantity, friBoiledQuantity) => {
@@ -49,7 +49,7 @@ const Lunch = ({ productList, onQuantityChange, onQuantityUpdate, onOptionChange
       <h1>Lunch box</h1>
 
       <div className="lunch-note">
-        To give me enough time to prepare your delicious lunch, please place your order by 6 PM the day before. If it's after 6 PM, no worries — I'll treat it as an order for next week's delivery!
+        To give me enough time to prepare your delicious lunch, please place your order by 6 PM the day before. If it's past 6 PM, just shoot me a message, and I'll check if we still have what you need!
       </div>
 
       <div className="num-weeks">
@@ -153,6 +153,12 @@ const Lunch = ({ productList, onQuantityChange, onQuantityUpdate, onOptionChange
             </button>
           </React.Fragment>
         ))}
+      </div>
+
+      <div className="clear-all-container">
+        <button className="clear-all-button"
+        onClick={() => onClearAll(['monBoiledQuantity', 'wedBoiledQuantity', 'friBoiledQuantity'])}>
+              Clear all</button>
       </div>
 
       <div className="total">Lunch bill: {formatNumber(totalCookedAmountWeeks)}</div>

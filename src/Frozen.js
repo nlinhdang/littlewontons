@@ -6,7 +6,7 @@ import Promotion from './Promotion';
 const frozenHeaders = ['Product', '10 pieces', 'Pieces', 'Amount', 'Operation'];
 
 
-const Frozen = ({ productList, onQuantityChange, onQuantityUpdate, onFocus }) => {
+const Frozen = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onClearAll }) => {
 
   const {deliveryLocation, setDeliveryLocation, setTotalFrozenAmount} = useAppContext();
 
@@ -58,6 +58,12 @@ const Frozen = ({ productList, onQuantityChange, onQuantityUpdate, onFocus }) =>
         ))}
       </div>
 
+      <div className="clear-all-container">
+        <button className="clear-all-button"
+        onClick={() => onClearAll(['frozenQuantity'])}>
+              Clear all</button>
+      </div>
+      
       <div className="total">Frozen bill: {formatNumber(totalFrozenAmount)}</div>
       
       {/* Delivery Location Section */}

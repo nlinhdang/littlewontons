@@ -4,7 +4,7 @@ import made from './img/made.png';
 import clickme from './img/clickme.png';
 
 
-import ProductTable from './ProductTable';
+import OrderPage from './OrderPage';
 import './style.css';
 import React, { useState } from 'react';
 import { AppProvider } from './AppContext';
@@ -72,7 +72,7 @@ function App() {
         </div>
         <div className="product-table">
 
-          {isClicked && <ProductTable products={products} />}
+          {isClicked && <OrderPage products={products} />}
 
 
         </div>

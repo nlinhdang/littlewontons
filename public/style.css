@@ -16,9 +16,10 @@
 
 }
 
-.container.clicked{
+.container.clicked {
   transform: translateY(-30px);
 }
+
 .img-container.centered {
   display: flex;
   flex-direction: column;
@@ -29,7 +30,7 @@
 
 .img-container.clicked {
   align-items: normal;
-} 
+}
 
 
 .logo-container {
@@ -51,10 +52,12 @@
   height: auto;
   margin-bottom: 5%;
 }
+
 .logo-block {
   /* display: block; */
   margin: 0 auto
 }
+
 .littlewonton {
   max-width: 80%;
 }
@@ -66,7 +69,7 @@
 
 .madewithlove {
   max-width: 25%;
-  
+
 }
 
 .clickme {
@@ -82,7 +85,7 @@
 .product-table {
   max-width: 800px;
   margin: 0 auto;
-    }
+}
 
 
 body {
@@ -123,7 +126,7 @@ h1 {
 .payment-photo {
   width: 40%;
 }
-    
+
 
 /* Grid items and headers */
 .grid-item,
@@ -135,7 +138,7 @@ h1 {
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #ddd;
-  
+
 }
 
 .grid-item {
@@ -165,6 +168,7 @@ h1 {
   font-size: 0.9rem;
   padding-bottom: 10px
 }
+
 .delivery-section label {
   display: flex;
   align-items: center;
@@ -243,21 +247,23 @@ button[type="submit"]:hover {
 .grid-subheader {
   text-align: center;
   font-weight: 600;
-  font-size: 0.8rem
+  font-size: 0.65rem
 }
 
 .empty-space {
   grid-column: 1 / -1;
   height: 1px;
 }
-.quantity{
+
+.quantity {
   display: flex
 }
+
 .quantity-control {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding:0;
-  border:none
+  padding: 0;
+  border: none
 }
 
 .quantity-button,
@@ -273,16 +279,17 @@ button[type="submit"]:hover {
   /* box-sizing: border-box; */
 }
 
-.quantity-input{
-  border-left:none;
+.quantity-input {
+  border-left: none;
   border-right: none;
-  cursor:auto;
+  cursor: auto;
   width: 100%;
 }
 
 .quantity-button :hover {
   background-color: #0e0e0e;
 }
+
 .quantity-button-decrease {
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
@@ -336,7 +343,7 @@ h3 {
 }
 
 
-.num-weeks{
+.num-weeks {
   font-size: 0.85rem;
   margin-bottom: 10px;
   text-align: center;
@@ -353,11 +360,12 @@ h3 {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
 .note-input {
   width: 100%;
   font-size: 0.8rem;
   padding: 5px;
-  border:1px solid #ddd;
+  border: 1px solid #ddd;
   border-radius: 5px;
   resize: vertical;
   overflow: hidden;
@@ -376,7 +384,8 @@ h3 {
   justify-content: space-around;
   font-size: 0.9rem;
 }
-.payment-photo{
+
+.payment-photo {
   max-width: 250px;
   /* margin-left: 5% */
 }
@@ -398,30 +407,30 @@ input[type="number"] {
 
 @keyframes shake {
   0% {
-      transform: rotate(0deg);
-      /* Bắt đầu tại vị trí ban đầu */
-    }
-  
-    25% {
-      transform: rotate(-10deg);
-      /* Xoay sang trái */
-    }
-  
-    50% {
-      transform: rotate(10deg);
-      /* Xoay sang phải */
-    }
-  
-    75% {
-      transform: rotate(-10deg);
-      /* Lắc lại một lần nữa sang trái */
-    }
-  
-    100% {
-      transform: rotate(0deg);
-      /* Kết thúc giữ nguyên vị trí */
-    }
+    transform: rotate(0deg);
+    /* Bắt đầu tại vị trí ban đầu */
   }
+
+  25% {
+    transform: rotate(-10deg);
+    /* Xoay sang trái */
+  }
+
+  50% {
+    transform: rotate(10deg);
+    /* Xoay sang phải */
+  }
+
+  75% {
+    transform: rotate(-10deg);
+    /* Lắc lại một lần nữa sang trái */
+  }
+
+  100% {
+    transform: rotate(0deg);
+    /* Kết thúc giữ nguyên vị trí */
+  }
+}
 
 .shake-animation {
   cursor: pointer;
@@ -431,56 +440,73 @@ input[type="number"] {
   transform-origin: bottom;
   /* Điểm giữa của phần tử giữ nguyên */
 }
-@media (min-width: 481px) { /* large screen */
+
+@media (min-width: 481px) {
+
+  /* large screen */
   .contact-info {
     width: 35%;
     font-size: 0.9rem;
   }
+
   .order-details {
     padding-top: 20px;
   }
 }
-@media (max-width: 480px) { /* small screen */
+
+@media (max-width: 650px) {
+  /* medium screen */
+
   html {
-      font-size: 10px;
-    }
+    font-size: 14px;
+  }
+
   .contact-info {
     font-size: 1.1rem;
     padding-bottom: 10px
   }
+
   .container {
     padding-left: 1px;
     padding-right: 2px
   }
-  
+
   .grid-item {
     padding: 0;
     margin: 0
   }
+
   .grid-container {
     gap: 1px;
     padding: 0px;
   }
+
+  .header3,
+  .amount {
+    display: none;
+  }
+
   .grid-container.frozen {
     /* grid-template-columns: 3fr 2fr 3fr 1fr 1fr; */
-    grid-template-columns: minmax(75px, 4fr) minmax(25px, 1fr) minmax(50px, 2fr) minmax(25px, 1fr) minmax(25px, 1fr);
+    grid-template-columns: minmax(75px, 3fr) minmax(25px, 1fr) minmax(50px, 2fr) minmax(25px, 1fr);
   }
 
   .grid-container.cooked {
     /* grid-template-columns: 2fr 1fr 4fr 1fr 1fr; */
-    grid-template-columns: minmax(70px, 3fr) minmax(25px, 1fr) minmax(125px, 4fr) minmax(25px, 1fr) minmax(25px, 1fr);
+    grid-template-columns: minmax(70px, 4fr) minmax(25px, 1fr) minmax(125px, 3fr) minmax(25px, 1.5fr);
     /* gap: 5px; */
   }
 
   .reset-button {
     padding: 2px;
   }
+
   .quantity-button,
   .quantity-input {
     padding: 0 3px
-    }
+  }
 
-  
+
   h1 {
     margin-top: 20px;
     margin-bottom: 10px;
@@ -497,12 +523,14 @@ input[type="number"] {
   .total {
     /* font-size: 13px; */
   }
+
   .container.payment-form {
     display: block;
     margin: auto;
     width: 75%
-    /* justify-content: space-between */
+      /* justify-content: space-between */
   }
+
   .order-form {
     margin: auto;
     width: 100%;
@@ -513,26 +541,53 @@ input[type="number"] {
     width: 30px;
     padding: 2px
   }
+
   .submit-button button {
     padding: 7px;
     margin-top: 5px
   }
+
   .order-details {
-  display: block;
+    display: block;
   }
-  
 }
 
-.promotion-container{
-  display: flex;
-  margin-bottom: 10px;
+@media (max-width: 480px) {
+
+  /* small screen */
+  html {
+    font-size: 12px;
+  }
 
 }
-.promotion-container p {
-  margin: auto
-}
+
 .lunch-note {
   font-size: 0.8rem;
   margin-top: -12px;
   color: #da8d00;
+}
+
+.promotion-container p {
+  color: red;
+  margin: auto;
+  font-size: 0.8rem;
+
+}
+
+.promotion-container {
+  display: flex;
+  margin-bottom: 10px;
+  flex-direction: column;
+}
+
+.order-preview-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.order-preview {
+  border: 1px solid #d9d9d9;
+  padding-left: 20px;
+
 }

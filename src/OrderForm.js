@@ -4,13 +4,8 @@ import payment from './img/payment.png';
 import { formatSubmissionTime } from './utils';
 
 const OrderForm = ({ totalAmount, productList }) => {
-  const [note, setNote] = useState('');
-  const { numWeeks, deliveryTime, deliveryLocation } = useAppContext();
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    note: '', // Thêm note vào formData
-  });
+  const { numWeeks, deliveryTime, deliveryLocation, note, formData, setFormData } = useAppContext();
+  
 
 
   const handleChange = (e) => {
@@ -77,31 +72,8 @@ const OrderForm = ({ totalAmount, productList }) => {
     
   }
 
-  function handleNote(e, textarea) {
-    textarea.style.height = 'auto'; // Đặt chiều cao về auto để đo chiều cao mới
-    textarea.style.height = textarea.scrollHeight + 'px'; // Thiết lập chiều cao mới dựa trên nội dung
-    const value = e.target.value;
-    setNote(value);
-    setFormData(prev => ({
-      ...prev,
-      note: value, // Cập nhật vào formData
-    }));
-  }
-
   return (
     <>
-      <div className='note-container'>
-        <textarea
-          id="note"
-          className="note-input"
-          rows="2"
-          placeholder='If you have any suggestions please let the Little Wontons know!'
-          name="note"
-          value={formData.note}
-          onInput={(e) => handleNote(e, e.target)}
-        />
-      </div>
-
       <div className="container payment-form required">
           <form onSubmit={handleSubmit} className='order-form'>
 
