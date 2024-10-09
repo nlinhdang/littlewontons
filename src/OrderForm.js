@@ -42,39 +42,39 @@ const OrderForm = ({ totalAmount, productList }) => {
     setSubmit('Loading . . .'); // Hiển thị "Loading" ngay lập tức
 
 
-    await new Promise(resolve => setTimeout(resolve, 5000));
-    console.log('Order Data to send:', orderData);
-    window.location.href = 'success.html';
+    // await new Promise(resolve => setTimeout(resolve, 5000));
+    // console.log('Order Data to send:', orderData);
+    // window.location.href = 'success.html';
 
 
     // Uncomment to send data to the server
     
-    // try {
-    //   const response = await fetch('https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZkMDYzMTA0MzE1MjZjNTUzNDUxMzci_pc', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(orderData),
-    //   });
+    try {
+      const response = await fetch('https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZkMDYzMTA0MzE1MjZjNTUzNDUxMzci_pc', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(orderData),
+      });
 
-    //   if (response.ok) { // Kiểm tra xem phản hồi có thành công không
-    //     if (totalAmount !== 0) {
-    //       const data = await response.json();
-    //       console.log('Order Data to send:', orderData);
-    //       console.log('Response from server:', data);
-    //       window.location.href = 'success.html';
-    //     } else {
-    //       alert('Oops... It looks like no products were selected. Please check again!');
-    //     } 
-    //     } else {
-    //       console.error('Error sending data to server:', response.statusText);
-    //       alert('Order unsuccessful. Please try again or reach me out via WhatsApp 0986289155 to place your order directly'); // Thông báo lỗi
-    //     }
-    //   } catch (error) {
-    //     console.error('Error sending data to server:', error);
-    //     alert('Order unsuccessful. Please try again or reach me out via WhatsApp 0986289155 to place your order directly'); // Thông báo lỗi
-    //   }
+      if (response.ok) { // Kiểm tra xem phản hồi có thành công không
+        if (totalAmount !== 0) {
+          const data = await response.json();
+          console.log('Order Data to send:', orderData);
+          console.log('Response from server:', data);
+          window.location.href = 'success.html';
+        } else {
+          alert('Oops... It looks like no products were selected. Please check again!');
+        } 
+        } else {
+          console.error('Error sending data to server:', response.statusText);
+          alert('Order unsuccessful. Please try again or reach me out via WhatsApp 0986289155 to place your order directly'); // Thông báo lỗi
+        }
+      } catch (error) {
+        console.error('Error sending data to server:', error);
+        alert('Order unsuccessful. Please try again or reach me out via WhatsApp 0986289155 to place your order directly'); // Thông báo lỗi
+      }
     
   }
 
