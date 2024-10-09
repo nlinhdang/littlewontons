@@ -453,8 +453,6 @@ input[type="number"] {
 
 .order-preview li {
   margin-left: 20px;
-  border: 1px red solid;
-  margin-right: 3px
 }
 
 .submit-button {
@@ -621,21 +619,15 @@ input[type="number"] {
     max-width: 200px;
     min-width: 0;
   }
+
   .num-weeks {
     margin-top: 5px;
     margin-bottom: -10px;
   }
+
   .grid-container {
     margin-top: 5px;
   }
-}
-
-.annoucement {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  line-height: 150%;
 }
 
 .success-container {
@@ -643,7 +635,6 @@ input[type="number"] {
   justify-content: center;
   flex-direction: column;
   margin: auto;
-  width: 70%;
   height: 100vh;
 }
 
@@ -654,6 +645,18 @@ input[type="number"] {
 .success-container p {
   text-align: center;
 }
+
+.success-announcement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  line-height: 150%;
+  font-size: 1.2rem;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
 .announcement {
   margin-top: 10%;
   color: red;
