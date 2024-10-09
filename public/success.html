@@ -9,6 +9,7 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.png" type="image/png" />
   <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -28,31 +29,12 @@
 </head>
 
 <body>
-  <div class="container"
-  style="
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin: auto;
-  width: 70%;
-  height: 100vh;
-  ">
+  <div class="success-container">
 
-    <div class="anoucement"
-    style="display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;">
+    <div class="annoucement">
       <h2>Thank you for your order !!</h2>
-      <p>We will contact you on WhatsApp when your Wontons have arrived</p>
-      <button style="background-color: #da8d00;
-                    color: white;
-                    border: none;
-                    margin-top: 4rem;
-                    padding: 10px;
-                    border-radius: 5px;
-                    cursor: pointer;
-                    font-size: 1.1rem;"
+      <p>We will contact you on WhatsApp when your Wontons have arrived.</p>
+      <button class="back-to-order-button"
               onclick="window.location.href = 'index.html'">
         Back to order
       </button>

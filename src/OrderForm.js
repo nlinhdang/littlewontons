@@ -39,14 +39,12 @@ const OrderForm = ({ totalAmount, productList }) => {
       submissionTime: formatSubmissionTime(currentTime),
     };
 
-    setSubmit('Loading. . .'); // Hiển thị "Loading" ngay lập tức
+    setSubmit('Loading . . .'); // Hiển thị "Loading" ngay lập tức
 
 
     await new Promise(resolve => setTimeout(resolve, 5000));
-
-
-        console.log('Order Data to send:', orderData);
-        window.location.href = 'success.html';
+    console.log('Order Data to send:', orderData);
+    window.location.href = 'success.html';
 
 
     // Uncomment to send data to the server

@@ -43,7 +43,7 @@ const OrderPreview = ({ totalAmount, productList }) => {
                           {dayName}:
                           <ul>
                             {productsForDay.map(product => (
-                              <li key={product.name}>{product.name} - {product[dayKey]}</li>
+                              <li key={product.name}>{product.name}: {product[dayKey]}</li>
                             ))}
                           </ul>
                         </li>

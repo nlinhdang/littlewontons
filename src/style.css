@@ -13,7 +13,6 @@
   margin: auto;
   width: 100%;
   max-width: 1200px;
-
 }
 
 .container.clicked {
@@ -31,7 +30,6 @@
 .img-container.clicked {
   align-items: normal;
 }
-
 
 .logo-container {
   /* border: 5px black solid; */
@@ -55,7 +53,7 @@
 
 .logo-block {
   /* display: block; */
-  margin: 0 auto
+  margin: 0 auto;
 }
 
 .littlewonton {
@@ -69,13 +67,12 @@
 
 .madewithlove {
   max-width: 25%;
-
 }
 
 .clickme {
   max-width: 25%;
   margin-top: -23%;
-  margin-left: 55%
+  margin-left: 55%;
 }
 
 .clickme.logo-block {
@@ -87,9 +84,8 @@
   margin: 0 auto;
 }
 
-
 body {
-  background-color: #F7F5F2;
+  background-color: #f7f5f2;
   color: #503d3d;
   overflow-x: hidden;
 }
@@ -104,6 +100,7 @@ h1 {
 .grid-container {
   display: grid;
   gap: 5px;
+  margin-top: 20px;
   margin-bottom: 20px;
   align-items: stretch;
   /* width: 100vw; */
@@ -112,21 +109,21 @@ h1 {
 /* Frozen grid configuration */
 .grid-container.frozen {
   /* grid-template-columns: 3fr 2fr 3fr 1fr 1fr; */
-  grid-template-columns: minmax(50px, 3fr) minmax(50px, 2fr) minmax(75px, 3fr) minmax(25px, 1fr) minmax(25px, 1fr);
+  grid-template-columns: minmax(50px, 3fr) minmax(50px, 2fr) minmax(75px, 3fr) minmax(25px,
+      1fr) minmax(25px, 1fr);
 }
 
 .grid-container.cooked {
   display: grid;
   /* grid-template-columns: 2fr 1fr 4fr 1fr 1fr; */
-  grid-template-columns: minmax(50px, 2fr) minmax(25px, 1fr) minmax(100px, 4fr) minmax(25px, 1fr) minmax(25px, 1fr);
+  grid-template-columns: minmax(50px, 2fr) minmax(25px, 1fr) minmax(100px, 4fr) minmax(25px,
+      1fr) minmax(25px, 1fr);
   align-items: center;
 }
-
 
 .payment-photo {
   width: 40%;
 }
-
 
 /* Grid items and headers */
 .grid-item,
@@ -138,7 +135,6 @@ h1 {
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #ddd;
-
 }
 
 .grid-item {
@@ -161,12 +157,12 @@ h1 {
 }
 
 .delivery-section {
-  padding-left: 20px
+  padding-left: 20px;
 }
 
 .delivery-section p {
   font-size: 0.9rem;
-  padding-bottom: 10px
+  padding-bottom: 10px;
 }
 
 .delivery-section label {
@@ -205,7 +201,8 @@ input {
   font-size: 0.8rem;
 }
 
-.submit-button button {
+.submit-button button,
+.back-to-order-button {
   background-color: #da8d00;
   color: white;
   border: none;
@@ -216,12 +213,16 @@ input {
   font-size: 1.1rem;
 }
 
+.back-to-order-button {
+
+  margin-top: 2rem;
+}
 
 .grid-header {
   font-weight: bold;
   background-color: #d9d9d9;
   text-align: center;
-  font-size: 0.55rem
+  font-size: 0.55rem;
 }
 
 .number-of-portions-header {
@@ -242,7 +243,7 @@ input {
 .grid-subheader {
   text-align: center;
   font-weight: 600;
-  font-size: 0.65rem
+  font-size: 0.65rem;
 }
 
 .empty-space {
@@ -251,14 +252,14 @@ input {
 }
 
 .quantity {
-  display: flex
+  display: flex;
 }
 
 .quantity-control {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   padding: 0;
-  border: none
+  border: none;
 }
 
 .quantity-button,
@@ -303,16 +304,17 @@ input {
   border: none;
   padding: 5px 10px;
   cursor: pointer;
-  font-size: 0.8rem
+  font-size: 0.8rem;
 }
 
 .clear-all-button {
   border-radius: 5px;
   background-color: #808080;
-  margin-top: -15px
+  margin-top: -15px;
 }
+
 .clear-all-button:hover {
-  background-color: #D3D3D3;
+  background-color: #d3d3d3;
 }
 
 .clear-all-container {
@@ -328,7 +330,7 @@ input {
 .delivery-section {
   border-bottom: 1px solid #ccc;
   border-top: none;
-  padding-bottom: 5px
+  padding-bottom: 5px;
 }
 
 .frozen-section,
@@ -347,10 +349,9 @@ input {
   justify-content: space-between;
 }
 
-
 .num-weeks {
   font-size: 0.85rem;
-  margin-bottom: 10px;
+  margin-top: 10px;
   text-align: center;
 }
 
@@ -407,7 +408,7 @@ input[type="number"] {
 
 .lunch-note {
   font-size: 0.8rem;
-  margin-top: -12px;
+  margin-top: 0px;
   color: #da8d00;
 }
 
@@ -415,7 +416,6 @@ input[type="number"] {
   color: red;
   margin: auto;
   font-size: 0.8rem;
-
 }
 
 .promotion-container {
@@ -496,7 +496,8 @@ input[type="number"] {
   /* Điểm giữa của phần tử giữ nguyên */
 }
 
-@media (min-width: 481px) {/* large screen */
+@media (min-width: 481px) {
+  /* large screen */
 
   .contact-info {
     width: 35%;
@@ -508,7 +509,8 @@ input[type="number"] {
   }
 }
 
-@media (max-width: 650px) { /* medium screen */
+@media (max-width: 650px) {
+  /* medium screen */
 
   html {
     font-size: 14px;
@@ -518,17 +520,17 @@ input[type="number"] {
     margin: auto;
     min-width: 250px;
     font-size: 1.1rem;
-    padding-bottom: 10px
+    padding-bottom: 10px;
   }
 
   .container {
     padding-left: 1px;
-    padding-right: 2px
+    padding-right: 2px;
   }
 
   .grid-item {
     padding: 0;
-    margin: 0
+    margin: 0;
   }
 
   .grid-container {
@@ -543,28 +545,29 @@ input[type="number"] {
 
   .grid-container.frozen {
     /* grid-template-columns: 3fr 2fr 3fr 1fr 1fr; */
-    grid-template-columns: minmax(75px, 3fr) minmax(25px, 1fr) minmax(50px, 2fr) minmax(25px, 1fr);
+    grid-template-columns: minmax(75px, 3fr) minmax(25px, 1fr) minmax(50px, 2fr) minmax(25px,
+        1fr);
   }
 
   .grid-container.cooked {
     /* grid-template-columns: 2fr 1fr 4fr 1fr 1fr; */
-    grid-template-columns: minmax(70px, 4fr) minmax(25px, 1fr) minmax(125px, 3fr) minmax(25px, 1.5fr);
+    grid-template-columns: minmax(70px, 4fr) minmax(25px, 1fr) minmax(125px,
+        3fr) minmax(25px, 1.5fr);
     /* gap: 5px; */
   }
 
   .reset-button {
     padding: 2px;
   }
-  
+
   .quantity-button,
   .quantity-input {
-    padding: 0 3px
+    padding: 0 3px;
   }
-
 
   h1 {
     margin-top: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 0;
   }
 
   .delivery-section label {
@@ -575,11 +578,10 @@ input[type="number"] {
     transform: scale(75%);
   }
 
-
   .container.payment-form {
     display: block;
     margin: auto;
-    width: 75%
+    width: 75%;
   }
 
   .order-form {
@@ -589,12 +591,12 @@ input[type="number"] {
 
   .num-weeks input {
     width: 30px;
-    padding: 2px
+    padding: 2px;
   }
 
   .submit-button button {
     padding: 7px;
-    margin-top: 5px
+    margin-top: 5px;
   }
 
   .order-details {
@@ -606,13 +608,53 @@ input[type="number"] {
   }
 }
 
-@media (max-width: 480px) { /* small screen */
+@media (max-width: 480px) {
+  /* small screen */
 
   html {
     font-size: 12px;
   }
-.contact-info {
-      max-width: 200px;
-      min-width: 0;
+
+  .contact-info {
+    max-width: 200px;
+    min-width: 0;
+  }
+  .num-weeks {
+    margin-top: 5px;
+    margin-bottom: -10px;
+  }
+  .grid-container {
+    margin-top: 5px;
+  }
 }
+
+.annoucement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  line-height: 150%;
+}
+
+.success-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  width: 70%;
+  height: 100vh;
+}
+
+.success-container h2 {
+  padding-bottom: 25px
+}
+
+.success-container p {
+  text-align: center;
+}
+.announcement {
+  margin-top: 10%;
+  color: red;
+  font-size: 0.8rem;
+  padding: 10px
 }

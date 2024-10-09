@@ -43,7 +43,6 @@ const Lunch = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onCle
     setTotalCookedAmountWeeks(totalCookedAmountWeeks);
   }, [totalCookedAmountWeeks, setTotalCookedAmountWeeks]);
 
-
   return (
     <div className="container">
       <h1>Lunch box</h1>

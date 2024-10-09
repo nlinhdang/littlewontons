@@ -8,6 +8,7 @@ import OrderPage from './OrderPage';
 import './style.css';
 import React, { useState } from 'react';
 import { AppProvider } from './AppContext';
+import Announcement from './Announcement';
 
 const products = [
   {
@@ -39,6 +40,12 @@ const products = [
   },
 ];
 
+const announcement = {
+  month: 9,
+  day: 20,
+  message: "Orders placed from Friday 11/9 to Sunday 20/9 will be delivered starting from Monday 21/9. Happy holiday!!! 🎉"
+}
+
 function App() {
   const [isClicked, setIsClicked] = useState(false); // Thêm state để theo dõi khi nào người dùng chọn option
 
@@ -49,6 +56,7 @@ function App() {
   return (
     <AppProvider>
       <div className={`container ${isClicked ? 'clicked' : ''}`}>
+
         <div className={`img-container ${isClicked ? 'clicked' : 'centered'}`}>
 
           <div className={`logo-container ${isClicked ? 'logo-block' : ''}`}>
@@ -68,14 +76,15 @@ function App() {
               src={clickme} alt="clickme"
               className={`clickme ${isClicked ? 'logo-block' : ''}`}
             />
+
+            {isClicked || <Announcement month={announcement.month} day={announcement.day} message={announcement.message}
+            className="announcement"/>}
           </div>
         </div>
         <div className="product-table">
-
           {isClicked && <OrderPage products={products} />}
-
-
         </div>
+
       </div>
 
     </AppProvider>

@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { formatNumber, calculateAmount } from './utils';
 import { useAppContext } from './AppContext';
-import Promotion from './Promotion';
+import Announcement from './Announcement';
+// import Promotion from './Promotion';
 
 const frozenHeaders = ['Product', '10 pieces', 'Pieces', 'Amount', 'Operation'];
 
@@ -21,10 +22,21 @@ const Frozen = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onCl
     setTotalFrozenAmount(totalFrozenAmount);
   }, [totalFrozenAmount, setTotalFrozenAmount]);
 
+  const promotion = {
+    month: 9,
+    day: 16,
+    message: `<div class="promotion-container">
+      <p>
+        Special FROZEN offer: <span style="font-size: 1.1rem;">10%</span> extra for existing customers 
+      </p>
+      <p>from 1/10 to 16/10</p>
+    </div>`
+
+}
   return (
     <div className="container">
       <h1>Frozen wontons</h1>
-      <Promotion />
+      <Announcement month={promotion.month} day={promotion.day} message={promotion.message} className="promotion"/>
       <div className="grid-container frozen">
         {frozenHeaders.map((header, index) => (
           <div className={`grid-header header${index}`} key={index}>{header}</div>
