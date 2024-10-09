@@ -100,6 +100,7 @@ h1 {
 .grid-container {
   display: grid;
   gap: 5px;
+  margin-top: 20px;
   margin-bottom: 20px;
   align-items: stretch;
   /* width: 100vw; */
@@ -350,7 +351,7 @@ input {
 
 .num-weeks {
   font-size: 0.85rem;
-  margin-bottom: 10px;
+  margin-top: 10px;
   text-align: center;
 }
 
@@ -407,7 +408,7 @@ input[type="number"] {
 
 .lunch-note {
   font-size: 0.8rem;
-  margin-top: -12px;
+  margin-top: 0px;
   color: #da8d00;
 }
 
@@ -452,6 +453,8 @@ input[type="number"] {
 
 .order-preview li {
   margin-left: 20px;
+  border: 1px red solid;
+  margin-right: 3px
 }
 
 .submit-button {
@@ -566,7 +569,7 @@ input[type="number"] {
 
   h1 {
     margin-top: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 0;
   }
 
   .delivery-section label {
@@ -618,22 +621,23 @@ input[type="number"] {
     max-width: 200px;
     min-width: 0;
   }
-}
 
-.annoucement {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  line-height: 150%;
+  .num-weeks {
+    margin-top: 5px;
+    margin-bottom: -10px;
+  }
+
+  .grid-container {
+    margin-top: 5px;
+  }
 }
 
 .success-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin: auto;
   height: 100vh;
-  padding: 10px
 }
 
 .success-container h2 {
@@ -644,9 +648,19 @@ input[type="number"] {
   text-align: center;
 }
 
-.announcement {
+.success-announcement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  line-height: 150%;
+  font-size: 1.1rem;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+.announcement{
   margin-top: 10%;
   color: red;
   font-size: 0.8rem;
-  padding: 10px;
+  padding: 10px
 }

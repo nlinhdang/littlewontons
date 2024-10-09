@@ -453,6 +453,8 @@ input[type="number"] {
 
 .order-preview li {
   margin-left: 20px;
+  border: 1px red solid;
+  margin-right: 3px
 }
 
 .submit-button {
