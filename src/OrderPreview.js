@@ -55,7 +55,7 @@ const OrderPreview = ({ totalAmount, productList }) => {
 
                 </>
               )}
-              <h3>Total bill: {formatNumber(totalAmount)}</h3>
+              <h3>Total: {formatNumber(totalAmount)}</h3>
             </div>
         </>
         )}
