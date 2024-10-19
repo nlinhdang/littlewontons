@@ -152,12 +152,13 @@ const Lunch = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onCle
             </button>
           </React.Fragment>
         ))}
-      </div>
 
-      <div className="clear-all-container">
+
         <button className="clear-all-button"
-        onClick={() => onClearAll(['monBoiledQuantity', 'wedBoiledQuantity', 'friBoiledQuantity'])}>
-              Clear all</button>
+          onClick={() => onClearAll(['monBoiledQuantity', 'wedBoiledQuantity', 'friBoiledQuantity'])}>
+          Clear all</button>
+
+
       </div>
 
       <div className="total">Lunch bill: {formatNumber(totalCookedAmountWeeks)}</div>

@@ -9,7 +9,7 @@ const frozenHeaders = ['Product', '10 pieces', 'Pieces', 'Amount', 'Operation'];
 
 const Frozen = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onClearAll }) => {
 
-  const {deliveryLocation, setDeliveryLocation, setTotalFrozenAmount} = useAppContext();
+  const { deliveryLocation, setDeliveryLocation, setTotalFrozenAmount } = useAppContext();
 
   const handleDeliveryLocationChange = (event) => {
     setDeliveryLocation(event.target.value);
@@ -32,11 +32,11 @@ const Frozen = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onCl
       <p>from 1/10 to 16/10</p>
     </div>`
 
-}
+  }
   return (
     <div className="container">
       <h1>Frozen wontons</h1>
-      <Announcement month={promotion.month} day={promotion.day} message={promotion.message} className="promotion"/>
+      <Announcement month={promotion.month} day={promotion.day} message={promotion.message} className="promotion" />
       <div className="grid-container frozen">
         {frozenHeaders.map((header, index) => (
           <div className={`grid-header header${index}`} key={index}>{header}</div>
@@ -68,16 +68,14 @@ const Frozen = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onCl
             </button>
           </React.Fragment>
         ))}
+        <button className="clear-all-button"
+          onClick={() => onClearAll(['frozenQuantity'])}>
+          Clear all</button>
       </div>
 
-      <div className="clear-all-container">
-        <button className="clear-all-button"
-        onClick={() => onClearAll(['frozenQuantity'])}>
-              Clear all</button>
-      </div>
-      
+
       <div className="total">Frozen bill: {formatNumber(totalFrozenAmount)}</div>
-      
+
       {/* Delivery Location Section */}
       <div className="delivery-section delivery-location">
         <p>Select Delivery Location:</p>
