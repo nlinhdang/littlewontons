@@ -206,7 +206,7 @@ const Lunch = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onCle
 
       {/* Cutlery Section */}
       <div className="select-section cutlery-section">
-        <p>Would you like a one-time-use chopstick?</p>
+        <p>Would you like one-time-use chopsticks?</p>
         <label>
           <input
             type="radio"
