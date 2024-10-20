@@ -5,7 +5,7 @@ import { formatSubmissionTime } from './utils';
 import { useNavigate } from 'react-router-dom';
 
 const OrderForm = ({ totalAmount, productList }) => {
-  const { hasSauce, cutlery, numWeeks, deliveryTime, deliveryLocation, note, formData, setFormData } = useAppContext();
+  const { frozenSauce, lunchSauce, cutlery, numWeeks, deliveryTime, deliveryLocation, note, formData, setFormData } = useAppContext();
   const [submitText, setSubmitText] = useState('Submit Order')
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -35,7 +35,8 @@ const OrderForm = ({ totalAmount, productList }) => {
         friedQuantity: product.friedQuantity,
       })),
       deliveryTime,
-      hasSauce,
+      frozenSauce,
+      lunchSauce,
       deliveryLocation,
       cutlery,
       totalAmount,
