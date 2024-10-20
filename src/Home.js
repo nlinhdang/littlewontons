@@ -53,37 +53,38 @@ const Home = () => {
   };
   return (  
     <>
-    <div className={`container ${isClicked ? 'clicked' : ''}`}>
+      <div className={`container ${isClicked ? 'clicked' : ''}`}>
 
-          <div className={`img-container ${isClicked ? 'clicked' : 'centered'}`}>
+        <div className={`img-container ${isClicked ? 'clicked' : 'centered'}`}>
 
-            <div className={`logo-container ${isClicked ? 'logo-block' : ''}`}>
-              <img
-                src={littlewonton}
-                className={`littlewonton ${isClicked ? 'logo-block' : ''}`}
-              />
-              <img
-                src={logo} alt="logo"
-                className={`logo ${isClicked ? 'logo-block' : 'shake-animation'}`}
-                onClick={handleLogoClick}
-              />
-              <img src={made}
-                className={`madewithlove ${isClicked ? 'logo-block' : ''}`}
-              />
-              <img
-                src={clickme} alt="clickme"
-                className={`clickme ${isClicked ? 'logo-block' : ''}`}
-              />
+          <div className={`logo-container ${isClicked ? 'logo-block' : ''}`}>
+            <img
+              src={littlewonton} alt="littlewonton"
+              className={`littlewonton ${isClicked ? 'logo-block' : ''}`}
+            />
+            <img
+              src={logo} alt="logo"
+              className={`logo ${isClicked ? 'logo-block' : 'shake-animation'}`}
+              onClick={handleLogoClick}
+            />
+            <img src={made} alt="made"
+              className={`madewithlove ${isClicked ? 'logo-block' : ''}`}
+            />
+            <img
+              src={clickme} alt="clickme"
+              className={`clickme ${isClicked ? 'logo-block' : ''}`}
+            />
 
-              {isClicked || <Announcement month={announcement.month} day={announcement.day} message={announcement.message}
-              className="announcement"/>}
-            </div>
+            {isClicked || <Announcement month={announcement.month} day={announcement.day} message={announcement.message}
+            className="announcement"/>}
           </div>
-          <div className="product-table">
-            {isClicked && <OrderPage products={products} />}
-          </div>
-
         </div>
+          
+        <div className="product-table">
+          {isClicked && <OrderPage products={products} />}
+        </div>
+
+      </div>
     </>
   );
 }

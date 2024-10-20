@@ -9,11 +9,7 @@ const frozenHeaders = ['Product', '10 pieces', 'Pieces', 'Amount', 'Operation'];
 
 const Frozen = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onClearAll }) => {
 
-  const { deliveryLocation, setDeliveryLocation, setTotalFrozenAmount } = useAppContext();
-
-  const handleDeliveryLocationChange = (event) => {
-    setDeliveryLocation(event.target.value);
-  };
+  const { handleSelectSectionChange, frozenSauce, setFrozenSauce,  deliveryLocation, setDeliveryLocation, setTotalFrozenAmount } = useAppContext();
 
   const totalFrozenAmount = productList.reduce((sum, product) => sum + calculateAmount(product.frozenPrice, product.frozenQuantity, 100), 0);
 
@@ -35,6 +31,8 @@ const Frozen = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onCl
   }
   return (
     <div className="container">
+
+    {/* Product Table Section */}
       <h1>Frozen wontons</h1>
       <Announcement month={promotion.month} day={promotion.day} message={promotion.message} className="promotion" />
       <div className="grid-container frozen">
@@ -73,18 +71,65 @@ const Frozen = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onCl
           Clear all</button>
       </div>
 
-
+    {/* Total*/}
       <div className="total">Frozen bill: {formatNumber(totalFrozenAmount)}</div>
 
-      {/* Delivery Location Section */}
-      <div className="delivery-section delivery-location">
+    {/* Choose sauce */}
+      <div className="select-section sauce-section">
+        <p>Little Wontons like to be dipped in sauce. Choose one!</p>
+        <label>
+          <input
+            type="radio"
+            value="chili-oil"
+            checked={frozenSauce === 'chili-oil'}
+            onChange={(event) => {
+              handleSelectSectionChange(event, setFrozenSauce)
+            }}
+          /> Chili oil
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="soy-sauce"
+            checked={frozenSauce === 'soy-sauce'}
+            onChange={(event) => {
+              handleSelectSectionChange(event, setFrozenSauce)
+            }}
+          /> Soy sauce
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="sweet-chili"
+            checked={frozenSauce === 'sweet-chili'}
+            onChange={(event) => {
+              handleSelectSectionChange(event, setFrozenSauce)
+            }}
+          /> Sweet Chili
+        </label>
+        <label>
+          <input
+            type="radio"
+            value='no'
+            checked={frozenSauce === 'no'}
+            onChange={(event) => {
+              handleSelectSectionChange(event, setFrozenSauce)
+            }}
+          /> Or not.
+        </label>
+      </div>
+    
+    {/* Delivery Location Section */}
+      <div className="select-section delivery-location">
         <p>Select Delivery Location:</p>
         <label>
           <input
             type="radio"
             value="ES"
             checked={deliveryLocation === 'ES'}
-            onChange={handleDeliveryLocationChange}
+            onChange={(event) => {
+              handleSelectSectionChange(event, setDeliveryLocation)
+            }}
           />
           ES Staff Lounge freezer
         </label>
@@ -93,7 +138,9 @@ const Frozen = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onCl
             type="radio"
             value="MS"
             checked={deliveryLocation === 'MS'}
-            onChange={handleDeliveryLocationChange}
+            onChange={(event) => {
+              handleSelectSectionChange(event, setDeliveryLocation)
+            }}
           />
           MS Staff Lounge freezer
         </label>
@@ -102,7 +149,9 @@ const Frozen = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onCl
             type="radio"
             value="HS"
             checked={deliveryLocation === 'HS'}
-            onChange={handleDeliveryLocationChange}
+            onChange={(event) => {
+              handleSelectSectionChange(event, setDeliveryLocation)
+            }}
           />
           HS Staff Lounge freezer
         </label>

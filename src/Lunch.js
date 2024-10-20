@@ -8,7 +8,7 @@ const subHeaders = ['Monday', 'Wednesday', 'Friday']; // Thêm sub-headers
 
 
 const Lunch = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onClearAll }) => {
-  const { deliveryTime, setDeliveryTime, numWeeks, setNumWeeks, setTotalCookedAmountWeeks } = useAppContext();
+  const { handleSelectSectionChange, lunchSauce, setLunchSauce, cutlery, setCutlery, deliveryTime, setDeliveryTime, numWeeks, setNumWeeks, setTotalCookedAmountWeeks } = useAppContext();
 
   const calculateCookedAmount = (cookedPrice, monBoiledQuantity, wedBoiledQuantity, friBoiledQuantity) => {
     return (calculateAmount(cookedPrice, monBoiledQuantity, 1000)
@@ -29,10 +29,6 @@ const Lunch = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onCle
 
   const handleNumWeeksChange = (e) => {
     setNumWeeks(Number(e.target.value));
-  };
-
-  const handleDeliveryTimeChange = (event) => {
-    setDeliveryTime(event.target.value);
   };
 
   // Calculate total amount based on order type
@@ -77,14 +73,14 @@ const Lunch = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onCle
           ))}
         </div>
 
-
         <div className="empty-space"></div>
+        
         {/* Product list */}
         {productList.map((product, index) => (
           <React.Fragment key={index}>
             <div className="grid-item product-name">{product.name}</div>
             <div className="grid-item">{product.cookedPrice}</div>
-            <div className="grid-item quantity-control sub-grid">
+            <div className="grid-item quantity-control">
               <label>
                 {/* <p className="day-label">Monday - Boiled</p> */}
                 <div className="quantity">
@@ -163,15 +159,87 @@ const Lunch = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onCle
 
       <div className="total">Lunch bill: {formatNumber(totalCookedAmountWeeks)}</div>
 
+      {/* Choose sauce */}
+      <div className="select-section sauce-section">
+        <p>Little Wontons like to be dipped in sauce. Choose one!</p>
+        <label>
+          <input
+            type="radio"
+            value="chili-oil"
+            checked={lunchSauce === 'chili-oil'}
+            onChange={(event) => {
+              handleSelectSectionChange(event, setLunchSauce)
+            }}
+          /> Chili oil
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="soy-sauce"
+            checked={lunchSauce === 'soy-sauce'}
+            onChange={(event) => {
+              handleSelectSectionChange(event, setLunchSauce)
+            }}
+          /> Soy sauce
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="sweet-chili"
+            checked={lunchSauce === 'sweet-chili'}
+            onChange={(event) => {
+              handleSelectSectionChange(event, setLunchSauce)
+            }}
+          /> Sweet Chili
+        </label>
+        <label>
+          <input
+            type="radio"
+            value='no'
+            checked={lunchSauce === 'no'}
+            onChange={(event) => {
+              handleSelectSectionChange(event, setLunchSauce)
+            }}
+          /> Or not.
+        </label>
+      </div>
+
+      {/* Cutlery Section */}
+      <div className="select-section cutlery-section">
+        <p>Would you like a one-time-use chopstick?</p>
+        <label>
+          <input
+            type="radio"
+            value="yes"
+            checked={cutlery === "yes"}
+            onChange={(event) => {
+              handleSelectSectionChange(event, setCutlery)
+            }}
+          />Yes
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="no"
+            checked={cutlery === "no"}
+            onChange={(event) => {
+              handleSelectSectionChange(event, setCutlery)
+            }}
+          />No
+        </label>
+      </div>
+
       {/* Delivery Time Section */}
-      <div className="delivery-section delivery-time">
+      <div className="select-section delivery-time">
         <p>Select Delivery Time:</p>
         <label>
           <input
             type="radio"
             value="11.05"
             checked={deliveryTime === '11.05'}
-            onChange={handleDeliveryTimeChange}
+            onChange={(event) => {
+              handleSelectSectionChange(event, setDeliveryTime)
+            }}
           />
           11.05
         </label>
@@ -180,7 +248,9 @@ const Lunch = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onCle
             type="radio"
             value="12.20"
             checked={deliveryTime === '12.20'}
-            onChange={handleDeliveryTimeChange}
+            onChange={(event) => {
+              handleSelectSectionChange(event, setDeliveryTime)
+            }}
           />
           12.20
         </label>
