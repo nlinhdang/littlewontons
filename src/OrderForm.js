@@ -32,7 +32,7 @@ const OrderForm = ({ totalAmount, productList }) => {
         frozenQuantity: product.frozenQuantity,
         monBoiledQuantity: product.monBoiledQuantity,
         wedBoiledQuantity: product.wedBoiledQuantity,
-        friedQuantity: product.friedQuantity,
+        friBoiledQuantity: product.friBoiledQuantity,
       })),
       deliveryTime,
       frozenSauce,
