@@ -81,7 +81,7 @@ const OrderForm = ({ totalAmount, productList }) => {
         }
       } catch (error) {
         console.error('Error sending data to server:', error);
-        alert('Order unsuccessful. Please try again or reach me out via WhatsApp 0986289155 to place your order directly'); // Thông báo lỗi
+        alert("Order unsuccessful. Don't worry, just reach me out via WhatsApp 0986289155 to confirm your order"); // Thông báo lỗi
       } finally {
     setIsSubmitting(false); // Kết thúc gửi đơn hàng
     setSubmitText('Submit Order'); // Reset nút về trạng thái ban đầu
