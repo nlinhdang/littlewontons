@@ -60,7 +60,8 @@ const OrderForm = ({ totalAmount, productList }) => {
     // Uncomment to send data to the server
     
     try {
-      const response = await fetch('https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZkMDYzMTA0MzE1MjZjNTUzNDUxMzci_pc', {
+      //const response = await fetch('https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZkMDYzMTA0MzE1MjZjNTUzNDUxMzci_pc', { //littelwontons
+      const response = await fetch('https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZjMDYzNDA0MzM1MjY5NTUzNjUxMzYi_pc', { //nlinhdang
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
