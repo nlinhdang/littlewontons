@@ -5,7 +5,7 @@ const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const [frozenSauce, setFrozenSauce] = useState(null)
-  const [lunchSauce, setLunchSauce] = useState(null)
+  const [lunchSauce, setLunchSauce] = useState([])
 
   const [cutlery, setCutlery] = useState(null)
 
@@ -21,9 +21,12 @@ export const AppProvider = ({ children }) => {
     note: '',
   }); 
   
+  //Cần fix
   const handleSelectSectionChange = (event, setAction) => {
-    setAction(event.target.value)
+    const value = event.target.value;
+    setAction(prevValue => (prevValue === value ? null : value));
   }
+
 
   return (
     <AppContext.Provider value={{handleSelectSectionChange, frozenSauce, setFrozenSauce, lunchSauce, setLunchSauce, cutlery, setCutlery, deliveryLocation, setDeliveryLocation, deliveryTime, setDeliveryTime, numWeeks, setNumWeeks, totalCookedAmountWeeks, setTotalCookedAmountWeeks, totalFrozenAmount, setTotalFrozenAmount, note, setNote, formData, setFormData }}>

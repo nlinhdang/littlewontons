@@ -169,7 +169,8 @@ h1 {
   padding-top: 7px;
 }
 
-.select-section input[type="radio"] {
+.select-section input[type="radio"],
+.select-section input[type="checkbox"] {
   margin-right: 5px;
 }
 
@@ -497,9 +498,16 @@ input[type="number"] {
   cursor: pointer;
   display: inline-block;
   animation: shake 2s ease-in-out infinite;
-  /* Hiệu ứng lắc đầu lặp lại */
   transform-origin: bottom;
-  /* Điểm giữa của phần tử giữ nguyên */
+}
+
+.name {
+  padding: 10px 0;
+}
+.phone p {
+  font-size: 0.7rem;
+  font-style: italic;
+  padding-bottom: 3px
 }
 
 @media (min-width: 481px) {
@@ -648,22 +656,25 @@ input[type="number"] {
 }
 
 .success-container h2 {
-  padding-bottom: 25px
-}
-
-.success-container p {
-  text-align: center;
+  padding-bottom: 20px;
 }
 
 .success-announcement {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
   flex-direction: column;
   line-height: 150%;
   font-size: 1.2rem;
   padding-left: 3px;
   padding-right: 3px;
+  text-align: left;
+}
+
+.success-announcement p {
+  width: 100%;
+  font-size: 1rem;
+  padding: 5px;
 }
 
 .announcement {

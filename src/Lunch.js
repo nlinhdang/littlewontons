@@ -8,6 +8,7 @@ const subHeaders = ['Monday', 'Wednesday', 'Friday']; // Thêm sub-headers
 
 
 const Lunch = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onClearAll }) => {
+
   const { handleSelectSectionChange, lunchSauce, setLunchSauce, cutlery, setCutlery, deliveryTime, setDeliveryTime, numWeeks, setNumWeeks, setTotalCookedAmountWeeks } = useAppContext();
 
   const calculateCookedAmount = (cookedPrice, monBoiledQuantity, wedBoiledQuantity, friBoiledQuantity) => {
@@ -38,6 +39,33 @@ const Lunch = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onCle
   useEffect(() => {
     setTotalCookedAmountWeeks(totalCookedAmountWeeks);
   }, [totalCookedAmountWeeks, setTotalCookedAmountWeeks]);
+
+  const handleSauceChange = (event) => {
+    const value = event.target.value;
+
+    if (value === "no") {
+      // Nếu "Không lấy nước chấm" được chọn, xóa tất cả các lựa chọn khác và chỉ giữ "no"
+      setLunchSauce(["no"]);
+    } else {
+      // Nếu có lựa chọn khác ngoài "no" thì loại bỏ "no" khỏi mảng nếu nó có
+      const newSelectedSauces = lunchSauce.filter(sauce => sauce !== "no");
+
+      // Kiểm tra nếu đã được chọn thì bỏ chọn nó
+      if (newSelectedSauces.includes(value)) {
+        setLunchSauce(newSelectedSauces.filter(sauce => sauce !== value));
+      } else {
+        // Chỉ cho phép thêm nếu số lượng hiện tại < 2
+        if (newSelectedSauces.length === 2) {
+          setLunchSauce([newSelectedSauces[0], value]);
+        } else {
+          setLunchSauce([...newSelectedSauces, value]);
+        }
+      }
+    }
+
+    console.log(lunchSauce);
+    
+  };
 
   return (
     <div className="container">
@@ -161,45 +189,37 @@ const Lunch = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onCle
 
       {/* Choose sauce */}
       <div className="select-section sauce-section">
-        <p>Little Wontons like to be dipped in sauce. Choose one!</p>
+        <p>Little Wontons like to be dipped in sauce. Choose up to 2 sauces!</p>
         <label>
           <input
-            type="radio"
+            type="checkbox"
             value="chili-oil"
-            checked={lunchSauce === 'chili-oil'}
-            onChange={(event) => {
-              handleSelectSectionChange(event, setLunchSauce)
-            }}
+            checked={lunchSauce.includes('chili-oil')}
+            onChange={handleSauceChange}
           /> Chili oil
         </label>
         <label>
           <input
-            type="radio"
+            type="checkbox"
             value="soy-sauce"
-            checked={lunchSauce === 'soy-sauce'}
-            onChange={(event) => {
-              handleSelectSectionChange(event, setLunchSauce)
-            }}
+            checked={lunchSauce.includes('soy-sauce')}
+            onChange={handleSauceChange}
           /> Soy sauce
         </label>
         <label>
           <input
-            type="radio"
+            type="checkbox"
             value="sweet-chili"
-            checked={lunchSauce === 'sweet-chili'}
-            onChange={(event) => {
-              handleSelectSectionChange(event, setLunchSauce)
-            }}
+            checked={lunchSauce.includes('sweet-chili')}
+            onChange={handleSauceChange}
           /> Sweet Chili
         </label>
         <label>
           <input
-            type="radio"
+            type="checkbox"
             value='no'
-            checked={lunchSauce === 'no'}
-            onChange={(event) => {
-              handleSelectSectionChange(event, setLunchSauce)
-            }}
+            checked={lunchSauce.includes('no')}
+            onChange={handleSauceChange}
           /> Or not.
         </label>
       </div>

@@ -7,14 +7,21 @@ const SuccessPage = () => {
     <>
       <div className="success-container">
 
-      <div className="success-announcement">
-        <h2>Thank you for your order !!</h2>
-        <p>We will contact you on WhatsApp when your Wontons have arrived.</p>
-        <button className="back-to-order-button"
-            onClick={() => { navigate("/") }}>
-          Back to order
-        </button>
-          </div>
+        <div className="success-announcement">
+          <h2>Thank you for your order !!</h2>
+          <p><i>Please note the following details:</i></p>
+          <p>
+            <strong>* Frozen orders</strong> will be delivered in 1-2 days <br />
+            (excluding Weekends and School Holidays)
+          </p>
+          <p>
+            <strong>* Lunches</strong> will be delivered to the Security Table at Gate 2 at your chosen time.
+          </p>
+          <button className="back-to-order-button"
+              onClick={() => { navigate("/") }}>
+            Back to order
+          </button>
+        </div>
       </div>  
     </>
   );
