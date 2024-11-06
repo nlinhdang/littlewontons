@@ -21,11 +21,22 @@ const Frozen = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onCl
   const promotion = {
     month: 9,
     day: 16,
-    message: `<div class="promotion-container">
+    message: `<div class="annoucement-container">
       <p>
         Special FROZEN offer: <span style="font-size: 1.1rem;">10%</span> extra for existing customers 
       </p>
       <p>from 1/10 to 16/10</p>
+    </div>`
+
+  }
+
+  const frozenAnnouncement = {
+    month: 10,
+    day: 10,
+    message: `<div class="annoucement-container">
+      <p>
+        FROZEN orders from Wednesday <span style="font-size: 1.1rem;">6/11</span> to Sunday <span style="font-size: 1.1rem;">10/11</span> will be delivered on Monday <span style="font-size: 1.1rem;">11/11</span> since my special delivery guy is abroad for a work trip. Thank you.
+      </p>
     </div>`
 
   }
@@ -34,7 +45,7 @@ const Frozen = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onCl
 
     {/* Product Table Section */}
       <h1>Frozen wontons</h1>
-      <Announcement month={promotion.month} day={promotion.day} message={promotion.message} className="promotion" />
+      <Announcement month={frozenAnnouncement.month} day={frozenAnnouncement.day} message={frozenAnnouncement.message} className="promotion" />
       <div className="grid-container frozen">
         {frozenHeaders.map((header, index) => (
           <div className={`grid-header header${index}`} key={index}>{header}</div>
