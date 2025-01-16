@@ -1,24 +1,21 @@
+
 import React, { useState, useEffect } from 'react';
 
-const Announcement = ({month, day, message, className }) => {
+const Announcement = ({ year, month, day, message, className }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const checkDate = () => {
       const now = new Date();
-      const endDate = new Date(now.getFullYear(), month, day, 23, 59, 59); // Oct 20
-      if (now <= endDate) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      const endDate = new Date(year, month - 1, day, 23, 59, 59); // Sử dụng year, month, và day được truyền vào
+      setIsVisible(now <= endDate);
     };
 
     checkDate(); // Kiểm tra ngay khi component render
     const intervalId = setInterval(checkDate, 24 * 60 * 60 * 1000); // Kiểm tra lại mỗi ngày
     
-    return () => clearInterval(intervalId); // Dọn dẹp interval khi component bị unmount để tránh lặp vô hạn
-  }, []);
+    return () => clearInterval(intervalId); // Dọn dẹp interval khi component bị unmount
+  }, [year, month, day]);
 
   const isHTML = (str) => {
     const div = document.createElement('div');
@@ -29,7 +26,7 @@ const Announcement = ({month, day, message, className }) => {
   return (
     isVisible && (
       <div className={`${className}`}>
-         {isHTML(message) ? (
+        {isHTML(message) ? (
           <span dangerouslySetInnerHTML={{ __html: message }} />
         ) : (
           message

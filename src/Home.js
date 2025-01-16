@@ -40,6 +40,7 @@ const products = [
 ];
 
 const announcement = {
+  year: 2024,
   month: 9,
   day: 20,
   message: "Orders placed from Friday 11/9 to Sunday 20/9 will be delivered starting from Monday 21/9. Happy holiday!!! 🎉"
@@ -75,7 +76,7 @@ const Home = () => {
               className={`clickme ${isClicked ? 'logo-block' : ''}`}
             />
 
-            {isClicked || <Announcement month={announcement.month} day={announcement.day} message={announcement.message}
+            {isClicked || <Announcement month={announcement.month} day={announcement.day} year={announcement.year} message={announcement.message}
             className="announcement"/>}
           </div>
         </div>
