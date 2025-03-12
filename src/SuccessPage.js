@@ -11,8 +11,8 @@ const SuccessPage = () => {
           <h2>Thank you for your order !!</h2>
           <p><i>Please note the following details:</i></p>
           <p>
-            <strong>* Frozen orders</strong> will be delivered in 1-2 days <br />
-            (excluding Weekends and School Holidays)
+            <strong>* Frozen orders</strong> will be delivered to ES/MS/HS freezer as your choice. <br />
+            {/* (excluding School Holidays) */}
           </p>
           <p>
             <strong>* Lunches</strong> will be delivered to the Security Table at Gate 2 at your chosen time.

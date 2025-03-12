@@ -38,14 +38,19 @@ const Frozen = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onCl
     message: `<div class="annoucement-container">
       <p>
         FROZEN orders from this Friday
-        <span style="font-size: 1.1rem;">14/03</span>
-        to this Sunday
-        <span style="font-size: 1.1rem;">16/03</span>
-        will be delivered on Sunday to MS freezer. <br>
-        FROZEN orders from next Monday
+        <span style="font-size: 1rem;">14/03</span>
         to Sunday
-        <span style="font-size: 1.1rem;">23/03</span>
-        will be delivered since Monday <span style="font-size: 1.1rem;">24/03</span> as my special delivery guy is going abroad for a work trip. Thank you.
+        <span style="font-size: 1rem;">16/03</span>
+        will be delivered on Monday morning
+        <span style="font-size: 1rem;">17/03</span>
+        to <strong>MS freezer</strong> ONLY. <br>
+
+        FROZEN orders from next Monday
+        <span style="font-size: 1rem;">18/03</span>
+
+        to Sunday
+        <span style="font-size: 1rem;">23/03</span>
+        will be delivered to <strong>ES/MS/HS freezer</strong> of your choice on Monday <span style="font-size: 1rem;">24/03</span>. Thank you.
       </p>
     </div>`
   }
@@ -56,8 +61,13 @@ const Frozen = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onCl
     <div className="container">
 
     {/* Product Table Section */}
+      
       <h1>Frozen wontons</h1>
+
       <Announcement year={frozenAnnouncement.year} month={frozenAnnouncement.month} day={frozenAnnouncement.day} message={frozenAnnouncement.message} className="promotion" />
+
+      {/* <h5>Place your frozen orders by <span style={{ color: "#da8d00" }}>Friday</span>, and we'll have them delivered to you every <span style={{ color: "#da8d00" }}>Monday</span>!</h5> */}
+    
       <div className="grid-container frozen">
         {frozenHeaders.map((header, index) => (
           <div className={`grid-header header${index}`} key={index}>{header}</div>
