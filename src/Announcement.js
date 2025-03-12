@@ -7,8 +7,14 @@ const Announcement = ({ year, month, day, message, className }) => {
   useEffect(() => {
     const checkDate = () => {
       const now = new Date();
-      const endDate = new Date(year, month - 1, day, 23, 59, 59); // Sử dụng year, month, và day được truyền vào
-      setIsVisible(now <= endDate);
+      const endDate = new Date(year, month - 1, day, 23, 59, 59);
+      const shouldShow = now <= endDate;
+
+      console.log("Current Date:", now);
+      console.log("Announcement Expiry Date:", endDate);
+      console.log("Should Show Announcement?", shouldShow);
+
+      setIsVisible(shouldShow);
     };
 
     checkDate(); // Kiểm tra ngay khi component render
@@ -23,6 +29,7 @@ const Announcement = ({ year, month, day, message, className }) => {
     return Array.from(div.childNodes).some(node => node.nodeType === 1); // Kiểm tra xem có phần tử HTML hay không
   };
 
+  
   return (
     isVisible && (
       <div className={`${className}`}>

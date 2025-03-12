@@ -18,6 +18,8 @@ const products = [
     cookedQuantity: 0,
     operation: 'Reset',
     cookedOption: null,
+    isFrozen: true,
+    isLunch: true,
   },
   {
     name: 'Juicy Shrimp & Pork',
@@ -27,16 +29,44 @@ const products = [
     cookedQuantity: 0,
     operation: 'Reset',
     cookedOption: null,
+    isFrozen: true,
+    isLunch: true,
   },
   {
-    name: 'Mix',
+    name: 'Mix 2 above',
     frozenPrice: '60k',
     cookedPrice: '80k',
     frozenQuantity: 0,
     cookedQuantity: 0,
     operation: 'Reset',
     cookedOption: null,
+    isFrozen: true,
+    isLunch: true,
   },
+  {
+    name: 'Simple Shrimp',
+    frozenPrice: '80k',
+    cookedPrice: '',
+    frozenQuantity: 0,
+    cookedQuantity: 0,
+    operation: 'Reset',
+    cookedOption: null,
+    isFrozen: true,
+    isLunch: false,
+
+  },
+  {
+    name: 'Cheese Burger',
+    frozenPrice: '80k',
+    cookedPrice: '',
+    frozenQuantity: 0,
+    cookedQuantity: 0,
+    operation: 'Reset',
+    cookedOption: null,
+    isFrozen: true,
+    isLunch: false,
+
+  }
 ];
 
 const announcement = {

@@ -9,31 +9,59 @@ import OrderPreview from './OrderPreview';
 import Note from './Note';
 
 const OrderPage = ({ products }) => {
-  const [productList, setProductList] = useState(products);
-  // const [selectedOption, setSelectedOption] = useState();
 
+  const [productList, setProductList] = useState(products);
+
+  const frozenProducts = productList.filter(product => product.isFrozen);
+  const lunchProducts = productList.filter(product => product.isLunch);
 
   const totalFrozenAmount = calculateTotalFrozenAmount(productList, calculateAmount);
   const { totalCookedAmountWeeks } = useAppContext();
   const totalAmount = totalFrozenAmount + totalCookedAmountWeeks;
 
+  // nhập input số lượng
   const handleQuantityChange = (index, value, type) => {
-    const updatedProducts = [...productList];
-    updatedProducts[index] = {
-      ...updatedProducts[index],
-      [type]: parseInt(value, 10) || 0
-    };
-    setProductList(updatedProducts);
+    setProductList(prevProductList => {
+      const updatedProducts = [...prevProductList];
+      updatedProducts[index] = {
+        ...updatedProducts[index],
+        [type]: parseInt(value, 10) || 0
+      };
+      return updatedProducts;
+    });
   };
 
+  // sử dụng nút tăng giảm
   const handleQuantityUpdate = (index, change, type) => {
-    const updatedProducts = [...productList];
-    updatedProducts[index] = {
-      ...updatedProducts[index],
-      [type]: Math.max((updatedProducts[index][type] || 0) + change, 0)
-    };
-    setProductList(updatedProducts);
-  };
+  setProductList(prevProductList => {
+    const updatedProducts = [...prevProductList];
+    const { name } = updatedProducts[index];
+    let newQuantity = (updatedProducts[index][type] || 0) + change;
+
+    if (name === 'Simple Shrimp' || name === 'Cheese Burger') {
+      if (newQuantity === 10) {
+        newQuantity = 20; // ✅ Nếu <=10, đưa về 0
+      // } else if (newQuantity === 20 && change < 0) {
+      //   newQuantity = 0; // ✅ Nếu đang ở 20 và nhấn "-", đưa về 0
+      // } else if (newQuantity < 20) {
+      //   newQuantity = 20; // ✅ Nếu vượt 0 nhưng <20, đặt về 20
+      } else {
+        newQuantity = Math.ceil(newQuantity / 10) * 10; // ✅ Chỉ nhận bội số của 10 từ 20 trở lên
+      }
+      console.log(newQuantity)
+    }
+
+    newQuantity = Math.max(newQuantity, 0); // ✅ Đảm bảo không có số âm
+
+    updatedProducts[index] = { ...updatedProducts[index], [type]: newQuantity };
+    return updatedProducts;
+  });
+};
+
+
+
+
+
 
   const handleOptionChange = (index, value) => {
     const updatedProducts = [...productList];
@@ -72,14 +100,14 @@ const OrderPage = ({ products }) => {
     <div className="container">
       <>
         <Frozen
-          productList={productList}
+          productList={frozenProducts}
           onQuantityChange={handleQuantityChange}
           onQuantityUpdate={handleQuantityUpdate}
           onFocus={handleOnFocus}
           onClearAll={handleClearAll}
         />
         <Lunch
-          productList={productList}
+          productList={lunchProducts}
           onQuantityChange={handleQuantityChange}
           onQuantityUpdate={handleQuantityUpdate}
           onOptionChange={handleOptionChange}
@@ -90,7 +118,7 @@ const OrderPage = ({ products }) => {
         <OrderPreview totalAmount={totalAmount} productList={productList} />
         <OrderForm totalAmount={totalAmount} productList={productList} />
       </>
-      {/* )} */}
+      
     </div>
   );
 };

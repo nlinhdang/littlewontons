@@ -18,6 +18,7 @@ const Frozen = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onCl
     setTotalFrozenAmount(totalFrozenAmount);
   }, [totalFrozenAmount, setTotalFrozenAmount]);
 
+  
   const promotion = {
     month: 9,
     day: 16,
@@ -31,21 +32,32 @@ const Frozen = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onCl
   }
 
   const frozenAnnouncement = {
-    month: 10,
-    day: 10,
+    year: 2025,
+    month: 3, //current month - 1
+    day: 23,
     message: `<div class="annoucement-container">
       <p>
-        FROZEN orders from Wednesday <span style="font-size: 1.1rem;">6/11</span> to Sunday <span style="font-size: 1.1rem;">10/11</span> will be delivered on Monday <span style="font-size: 1.1rem;">11/11</span> since my special delivery guy is abroad for a work trip. Thank you.
+        FROZEN orders from this Friday
+        <span style="font-size: 1.1rem;">14/03</span>
+        to this Sunday
+        <span style="font-size: 1.1rem;">16/03</span>
+        will be delivered on Sunday to MS freezer. <br>
+        FROZEN orders from next Monday
+        to Sunday
+        <span style="font-size: 1.1rem;">23/03</span>
+        will be delivered since Monday <span style="font-size: 1.1rem;">24/03</span> as my special delivery guy is going abroad for a work trip. Thank you.
       </p>
     </div>`
-
   }
+
+  
+
   return (
     <div className="container">
 
     {/* Product Table Section */}
       <h1>Frozen wontons</h1>
-      <Announcement month={frozenAnnouncement.month} day={frozenAnnouncement.day} message={frozenAnnouncement.message} className="promotion" />
+      <Announcement year={frozenAnnouncement.year} month={frozenAnnouncement.month} day={frozenAnnouncement.day} message={frozenAnnouncement.message} className="promotion" />
       <div className="grid-container frozen">
         {frozenHeaders.map((header, index) => (
           <div className={`grid-header header${index}`} key={index}>{header}</div>
@@ -59,7 +71,9 @@ const Frozen = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onCl
               <button className="quantity-button quantity-button-decrease" onClick={() => onQuantityUpdate(index, -10, 'frozenQuantity')}>-</button>
               <input
                 type="number"
+                // min={product.name === 'Simple Shrimp' ? 20 : 10}
                 min="0"
+
                 step="10"
                 value={product.frozenQuantity || ''}
                 onChange={(e) => onQuantityChange(index, e.target.value, 'frozenQuantity')}
