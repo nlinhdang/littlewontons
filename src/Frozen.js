@@ -37,16 +37,10 @@ const Frozen = ({ productList, onQuantityChange, onQuantityUpdate, onFocus, onCl
     day: 23,
     message: `<div class="annoucement-container">
       <p>
-        FROZEN orders from this Friday
-        <span style="font-size: 1rem;">14/03</span>
-        to Sunday
-        <span style="font-size: 1rem;">16/03</span>
-        will be delivered on Monday morning
-        <span style="font-size: 1rem;">17/03</span>
-        to <strong>MS freezer</strong> ONLY. <br>
+       
 
-        FROZEN orders from next Monday
-        <span style="font-size: 1rem;">18/03</span>
+        FROZEN orders from now
+        <span style="font-size: 1rem;">16/03</span>
 
         to Sunday
         <span style="font-size: 1rem;">23/03</span>
