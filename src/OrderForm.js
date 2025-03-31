@@ -64,6 +64,7 @@ const OrderForm = ({ totalAmount, productList }) => {
       const response = await fetch("https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZjMDYzNDA0MzM1MjY5NTUzNjUxMzYi_pc", { //nlinhdang
          
         method: 'POST',
+        mode: "no-cors",
         headers: {
           'Content-Type': 'application/json',
         },
