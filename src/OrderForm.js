@@ -61,8 +61,8 @@ const OrderForm = ({ totalAmount, productList }) => {
     
     try {
       //const response = await fetch('https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZkMDYzMTA0MzE1MjZjNTUzNDUxMzci_pc', { //littelwontons
-      // await fetch("https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZjMDYzNDA0MzM1MjY5NTUzNjUxMzYi_pc", { //nlinhdang
-         await fetch('https://script.google.com/macros/s/AKfycbw4bXdAD9QygThbdb2kqh0NLAVNRVmMOBGv2NYFah0ouVcuKXG5nimsa9UNVoxpx1y_CQ/exec', {
+      await fetch("https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZjMDYzNDA0MzM1MjY5NTUzNjUxMzYi_pc", { //nlinhdang
+         // await fetch('https://script.google.com/macros/s/AKfycbw4bXdAD9QygThbdb2kqh0NLAVNRVmMOBGv2NYFah0ouVcuKXG5nimsa9UNVoxpx1y_CQ/exec', {
         method: 'POST',
         mode: "no-cors",
         headers: {
