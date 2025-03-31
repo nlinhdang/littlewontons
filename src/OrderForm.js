@@ -61,7 +61,7 @@ const OrderForm = ({ totalAmount, productList }) => {
     
     try {
       //const response = await fetch('https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZkMDYzMTA0MzE1MjZjNTUzNDUxMzci_pc', { //littelwontons
-      const response = await fetch("https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZjMDYzNDA0MzM1MjY5NTUzNjUxMzYi_pc", { //nlinhdang
+      await fetch("https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZjMDYzNDA0MzM1MjY5NTUzNjUxMzYi_pc", { //nlinhdang
          
         method: 'POST',
         mode: "no-cors",
@@ -71,17 +71,17 @@ const OrderForm = ({ totalAmount, productList }) => {
         body: JSON.stringify(orderData),
       });
 
-      if (response.ok) {
+      // if (response.ok) {
         if (totalAmount !== 0) {
           // const data = await response.json();
           navigate('/success');
         } else {
           alert('Oops... It looks like no products were selected. Please check again!');
         } 
-        } else {
-          console.error('Error sending data to server:', response.statusText);
-          alert('Order unsuccessful. Please try again or reach me out via WhatsApp 0986289155 to place your order directly');
-        }
+        // } else {
+        //   console.error('Error sending data to server:', response.statusText);
+        //   alert('Order unsuccessful. Please try again or reach me out via WhatsApp 0986289155 to place your order directly');
+        // }
       } catch (error) {
         console.error('Error sending data to server:', error);
         alert("Order unsuccessful. Don't worry, just reach me out via WhatsApp 0986289155 to confirm your order"); // Thông báo lỗi
