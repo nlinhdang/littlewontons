@@ -189,7 +189,7 @@ const Homepage = ({ productRef, homeRef, activeLink, setActiveLink }) => {
           <div className="icon-block">
             <img src={zaloLogo} alt="zalo Logo"/>
             <img src={whatsapLogo} alt="whatsapp Logo"/>
-            0986 289 155
+            0986289155
           </div>
         </section>
       </content>
