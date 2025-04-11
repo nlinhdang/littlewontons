@@ -5,16 +5,16 @@
   box-sizing: border-box;
 }
 
-.container {
+/* .container {
   transition: transform 1s ease;
   box-sizing: border-box;
   padding: 2rem 0.3rem;
-  
+  box-sizing: border-box;
   margin: 0 auto;
-  width: 100%;
+  width: calc(100% + 2rem);
   max-width: 800px;
 
-}
+} */
 
 .container.clicked {
   transform: translateY(-30px);
@@ -258,8 +258,9 @@ input {
   background-color: #f7f5f2;
   border: none;
 }
+
 .cooked .quantity-control {
-  gap:1px
+  gap: 1px
 }
 
 .quantity-button,
@@ -505,11 +506,13 @@ input[type="number"] {
 .name {
   padding: 10px 0;
 }
+
 .phone p {
   font-size: 0.7rem;
   font-style: italic;
   padding-bottom: 3px
 }
+
 .success-container {
   display: flex;
   justify-content: center;
@@ -548,7 +551,8 @@ input[type="number"] {
   padding: 10px
 }
 
-.header, nav {
+.header,
+nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -556,6 +560,7 @@ input[type="number"] {
 }
 
 .header-wrapper {
+  /* width: calc(100% - 1rem); */
   width: 100%;
   border-bottom: 1px #503d3d solid;
   position: fixed;
@@ -563,10 +568,27 @@ input[type="number"] {
   background-color: #e2d0bb;
 }
 
+.container {
+  transition: transform 1s ease;
+  box-sizing: border-box;
+  padding: 2rem 0;
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0.5rem;
+  margin: auto;
+}
+
 .header {
   margin: auto;
   padding: 0.5rem;
-  width: 100%;
+  /* width: 100%; */
   max-width: 800px;
 }
 
@@ -627,16 +649,18 @@ nav div {
 
 .header button:hover,
 .order-section button:hover {
-  background: linear-gradient(135deg, #d95e2e, #e77c46);}
+  background: linear-gradient(135deg, #d95e2e, #e77c46);
+}
 
-content {
+/* content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
   margin: auto;
   max-width: 800px;
-}
+  border: 1px black solid
+} */
 
 .introduction-section {
   margin-top: 5rem;
@@ -646,10 +670,10 @@ content {
 .full-logo {
   height: 10rem;
 }
+
 .wontons-photo {
   display: flex;
   margin-bottom: 2rem
-  
 }
 
 .wontons-photo img {
@@ -691,6 +715,7 @@ line {
 .lunch-box-info {
   padding: 1rem 0;
 }
+
 .frozen-pack p,
 .lunch-box p {
   padding: 0 10.5rem 1rem 0;
@@ -700,15 +725,16 @@ line {
   position: absolute;
   width: 11rem;
   top: -2rem;
-  right: -0.5rem;
-  transform: rotate(15deg);
+  right: 0.4rem;
+  transform: rotate(10deg);
 }
+
 .lunch-box img {
-position: absolute;
+  position: absolute;
   width: 11rem;
   top: -1.5REM;
-  right: -0.5rem;
-  transform: rotate(15deg);
+  right: 0.4rem;
+  transform: rotate(10deg);
 }
 
 .price-table {
@@ -718,6 +744,7 @@ position: absolute;
   border: 1px #503d3d solid;
   border-collapse: collapse;
 }
+
 .price-table th,
 .price-table td {
   border: 1px solid #5c3d2e;
@@ -737,10 +764,12 @@ position: absolute;
   font-style: italic;
   font-size: 0.7rem;
 }
+
 .order-section {
   text-align: center;
-  
+
 }
+
 .order-section button {
   font-size: 1.1rem;
   margin: 1.5rem 0 1rem;
@@ -752,9 +781,10 @@ position: absolute;
   font-size: 1.3rem;
   justify-content: center;
 }
+
 .icon-block img {
-width: 2rem;
-margin-right: 0.3rem
+  width: 2rem;
+  margin-right: 0.3rem
 }
 
 .title {
@@ -795,15 +825,15 @@ margin-right: 0.3rem
   padding-bottom: 1rem;
 }
 
-.how-to-cook-section >div,
-.example-section > div {
+.how-to-cook-section>div,
+.example-section>div {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 0;
 }
 
-.how-to-cook-section > p {
+.how-to-cook-section>p {
   font-weight: bold;
   padding: 0.5rem 0
 }
@@ -840,21 +870,16 @@ margin-right: 0.3rem
     width: 10rem
   }
 
-    .frozen-pack p,
-    .lunch-box p {
-      padding: 0 9.5rem 1rem 0;
-    }
+  .frozen-pack p,
+  .lunch-box p {
+    padding: 0 10.1rem 1rem 0;
+  }
 
   .contact-info {
     margin: auto;
     min-width: 250px;
     font-size: 1.1rem;
     padding-bottom: 10px;
-  }
-
-  .container {
-    padding-left: 1px;
-    padding-right: 2px;
   }
 
   .grid-item {
@@ -948,26 +973,26 @@ margin-right: 0.3rem
     font-size: 12px;
   }
 
-    .introduction-section .title, 
-    .introduction-section h2 {
-      font-size: 1.2rem;
-    }
+  .introduction-section .title,
+  .introduction-section h2 {
+    font-size: 1.2rem;
+  }
 
-    .introduction-section .intro p {
-      font-size: 0.97rem;
-    }
+  .introduction-section .intro p {
+    font-size: 0.97rem;
+  }
 
   .lunch-box img,
   .frozen-pack img {
 
-    top:2rem;
+    top: 2rem;
     width: 8.5rem
   }
 
-    .frozen-pack p,
-    .lunch-box p {
-      padding: 0 8.5rem 1rem 0;
-    }
+  .frozen-pack p,
+  .lunch-box p {
+    padding: 0 9rem 1rem 0;
+  }
 
   .contact-info {
     max-width: 200px;
