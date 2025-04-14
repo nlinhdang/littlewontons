@@ -87,7 +87,7 @@ const Homepage = ({ productRef, homeRef, activeLink, setActiveLink }) => {
   
 
   return (
-    <div className='container'>
+    <div className='container homepage-container'>
       
       <content>
         <section ref={homeRef}className="introduction-section">

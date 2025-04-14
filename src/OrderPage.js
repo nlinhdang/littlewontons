@@ -181,7 +181,7 @@ const lunchProducts = useMemo(
   <UserProvider>
     <FrozenProvider>
       <LunchProvider>
-        <div className="container">
+        <div className="container" style={{padding: "0 0.5rem"}}>
           <Frozen
             frozenProductList={frozenProducts}
             onQuantityChange={handleQuantityChange}
