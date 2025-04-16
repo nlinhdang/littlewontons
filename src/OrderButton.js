@@ -1,11 +1,12 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-function OrderButton({ activeLink, setActiveLink }) {
+function OrderButton({ activeLink, setActiveLink, setIsVisible }) {
   const navigate = useNavigate();
   const location = useLocation();
 
   const handleClick = () => {
+    if (setIsVisible) setIsVisible(false);
     setActiveLink('order');
     navigate('/order');
     window.scrollTo(0, 0);
@@ -17,7 +18,7 @@ function OrderButton({ activeLink, setActiveLink }) {
   }
   
   return (
-    <button className={activeLink === 'order' ? 'active' : ''} onClick={handleClick}>
+    <button className={`order-button ${activeLink === 'order' ? 'active' : ''}`} onClick={handleClick}>
       Order
     </button>
   );

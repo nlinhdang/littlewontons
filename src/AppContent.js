@@ -6,6 +6,7 @@ import Homepage from './Homepage';
 import HowToCook from './HowToCook';
 import OrderPage from './OrderPage';
 import Header from './Header';
+import PopupBanner from './PopupBanner';
 
 function AppContent() {
   const location = useLocation();
@@ -82,6 +83,7 @@ function AppContent() {
         />
         <Route path="/success" element={<SuccessPage />} />
       </Routes>
+      <PopupBanner activeLink={activeLink} setActiveLink={setActiveLink} />
     </>
   );
 }

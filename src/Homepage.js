@@ -89,7 +89,7 @@ const Homepage = ({ productRef, homeRef, activeLink, setActiveLink }) => {
   return (
     <div className='container homepage-container'>
       
-      <content>
+      <content className="homepage">
         <section ref={homeRef}className="introduction-section">
           <img src={fullLogo} alt="full logo" className='full-logo'/>
 

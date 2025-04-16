@@ -5,16 +5,6 @@
   box-sizing: border-box;
 }
 
-/* .container {
-  transition: transform 1s ease;
-  box-sizing: border-box;
-  padding: 2rem 0.3rem;
-  box-sizing: border-box;
-  margin: 0 auto;
-  width: calc(100% + 2rem);
-  max-width: 800px;
-
-} */
 
 .container.clicked {
   transform: translateY(-30px);
@@ -96,6 +86,45 @@ h1 {
   text-align: center;
 }
 
+/* Frozen - Lunch Component*/
+.frozen-section,
+.lunch-section {
+  margin-top: 4rem;
+  margin-bottom: 1.5rem;
+  padding: 0 0.5rem 0.5rem;
+  border: 1px solid grey;
+  border-radius: 1rem;
+  box-shadow:
+      0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.lunch-section {
+  margin-top: 1rem;
+}
+.frozen-section h1,
+.lunch-section h1 {
+  /* display: block; */
+margin: 1rem auto 1rem 0.1rem
+}
+
+.product-title {
+  display: flex;
+  /* align-items: center; */
+  /* justify-content: left; */
+  /* border: 1px red solid; */
+  width: 100%;
+}
+
+.product-title img {
+  width: 2rem;
+}
+
+.frozen-order,
+.lunch-order {
+  /* display: none; */
+
+}
+
 .grid-container {
   display: grid;
   gap: 5px;
@@ -154,7 +183,7 @@ h1 {
 }
 
 .select-section {
-  padding-left: 20px;
+  padding-left: 0.5rem;
 }
 
 .select-section p,
@@ -341,11 +370,11 @@ input {
   padding-bottom: 5px;
 }
 
-.frozen-section,
+/* .frozen-section,
 .cooked-section,
 .both-section {
   margin-top: 20px;
-}
+} */
 
 .frozen-wontons,
 .lunch-box {
@@ -564,6 +593,7 @@ nav {
   width: 100%;
   border-bottom: 1px #503d3d solid;
   position: fixed;
+  top:0;
   z-index: 999;
   background-color: #e2d0bb;
 }
@@ -613,8 +643,7 @@ nav div {
   cursor: pointer;
 }
 
-.header button,
-.order-section button {
+.order-button {
   padding: 0.3rem 0.6rem;
   font-size: 0.8rem;
   font-weight: 600;
@@ -652,15 +681,6 @@ nav div {
   background: linear-gradient(135deg, #d95e2e, #e77c46);
 }
 
-/* content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 0.5rem;
-  margin: auto;
-  max-width: 800px;
-  border: 1px black solid
-} */
 
 .homepage-container .introduction-section {
   min-height: 100vh;
@@ -849,6 +869,67 @@ line {
   font-size: 1.1rem
 }
 
+
+/* ---------------------- PopupBanner.css ------------------------- */
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.popup-container {
+  position: relative;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid white;
+  width: 90vw;
+  max-width: 27rem;
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.popup-image {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  display: block;
+}
+
+.popup-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+}
+
+.popup-close:hover {
+  color: black;
+}
+
+.popup-overlay .order-button {
+  position: absolute;
+  bottom: 9rem;
+  right: 3rem;
+  font-size: 1rem;
+}
+
 /* ----------------- responsive --------------------------- */
 @media (min-width: 481px) {
   /* large screen */
@@ -976,6 +1057,11 @@ line {
 
   html {
     font-size: 12px;
+  }
+
+    /* chỉnh lại khúc này */
+  .cooked .product-name {
+    font-size: 0.8rem;
   }
 
   .introduction-section .title,

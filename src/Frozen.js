@@ -3,6 +3,8 @@ import { formatNumber, calculateAmount, handleSelectSectionChange } from './util
 import { useContextSelector } from 'use-context-selector';
 import { FrozenContext } from './Context/FrozenContext';
 import Announcement from './Announcement';
+import plus from './icons/plus.svg'
+
 // import Promotion from './Promotion';
 
 const frozenHeaders = ['Product', '10 pieces', 'Pieces', 'Amount', 'Operation'];
@@ -56,140 +58,148 @@ const FrozenComponent = ({ frozenProductList, onQuantityChange, onQuantityUpdate
   
 
   return (
-    <div className="container">
+    <content className="frozen-section">
 
     {/* Product Table Section */}
       
-      <h1>Frozen wontons</h1>
+      <section className="product-title">
+        <h1>Frozen wontons</h1>
+        {/* <img src={plus} alt="" /> */}
+      </section>
 
-      <Announcement year={frozenAnnouncement.year} month={frozenAnnouncement.month} day={frozenAnnouncement.day} message={frozenAnnouncement.message} className="promotion" />
+      <section className="frozen-order">
+        <Announcement year={frozenAnnouncement.year} month={frozenAnnouncement.month} day={frozenAnnouncement.day} message={frozenAnnouncement.message} className="promotion" />
 
-      {/* <h5>Place your frozen orders by <span style={{ color: "#da8d00" }}>Friday</span>, and we'll have them delivered to you every <span style={{ color: "#da8d00" }}>Monday</span>!</h5> */}
-    
-      <div className="grid-container frozen">
-        {frozenHeaders.map((header, index) => (
-          <div className={`grid-header header${index}`} key={index}>{header}</div>
-        ))}
+        <div className="note lunch-note">
+          Place your FROZEN orders by <span>Friday</span>, and we'll have them delivered to you on <span>Monday</span> - every week!
+        </div>
+        
+        
+        <div className="grid-container frozen">
+          {frozenHeaders.map((header, index) => (
+            <div className={`grid-header header${index}`} key={index}>{header}</div>
+          ))}
 
-        {frozenProductList.map((product, index) => (
-          <React.Fragment key={index}>
-            <div className="grid-item product-name">{product.name}</div>
-            <div className="grid-item">{product.frozenPrice}</div>
-            <div className="grid-item quantity-control">
-              <button className="quantity-button quantity-button-decrease" onClick={() => onQuantityUpdate(product.name, -10, 'frozenQuantity')}>-</button>
-              <input
-                type="number"
-                // min={product.name === 'Simple Shrimp' ? 20 : 10}
-                min="0"
+          {frozenProductList.map((product, index) => (
+            <React.Fragment key={index}>
+              <div className="grid-item product-name">{product.name}</div>
+              <div className="grid-item">{product.frozenPrice}</div>
+              <div className="grid-item quantity-control">
+                <button className="quantity-button quantity-button-decrease" onClick={() => onQuantityUpdate(product.name, -10, 'frozenQuantity')}>-</button>
+                <input
+                  type="number"
+                  // min={product.name === 'Simple Shrimp' ? 20 : 10}
+                  min="0"
 
-                step="10"
-                value={product.frozenQuantity || ''}
-                onChange={(e) => onQuantityChange(product.name, e.target.value, 'frozenQuantity')}
-                onFocus={() => onFocus(product.name, 'frozenQuantity')}
-                placeholder="0"
-                className="quantity-input"
-              />
-              <button className="quantity-button quantity-button-increase" onClick={() => onQuantityUpdate(product.name, 10, 'frozenQuantity')}>+</button>
-            </div>
-            <div className="grid-item amount">
-              {formatNumber(calculateAmount(product.frozenPrice, product.frozenQuantity, 100))}
-            </div>
-            <button className="grid-item reset-button" onClick={() => onFocus(product.name, 'frozenQuantity')}>
-              {product.operation}
-            </button>
-          </React.Fragment>
-        ))}
-        <button className="clear-all-button"
-          onClick={() => onClearAll(['frozenQuantity'])}>
-          Clear all</button>
-      </div>
+                  step="10"
+                  value={product.frozenQuantity || ''}
+                  onChange={(e) => onQuantityChange(product.name, e.target.value, 'frozenQuantity')}
+                  onFocus={() => onFocus(product.name, 'frozenQuantity')}
+                  placeholder="0"
+                  className="quantity-input"
+                />
+                <button className="quantity-button quantity-button-increase" onClick={() => onQuantityUpdate(product.name, 10, 'frozenQuantity')}>+</button>
+              </div>
+              <div className="grid-item amount">
+                {formatNumber(calculateAmount(product.frozenPrice, product.frozenQuantity, 100))}
+              </div>
+              <button className="grid-item reset-button" onClick={() => onFocus(product.name, 'frozenQuantity')}>
+                {product.operation}
+              </button>
+            </React.Fragment>
+          ))}
+          <button className="clear-all-button"
+            onClick={() => onClearAll(['frozenQuantity'])}>
+            Clear all</button>
+        </div>
 
-    {/* Total*/}
-      <div className="total">Frozen bill: {formatNumber(totalFrozenAmount)}</div>
+      {/* Total*/}
+        <div className="total">Frozen bill: {formatNumber(totalFrozenAmount)}</div>
 
-    {/* Choose sauce */}
-      <div className="select-section sauce-section">
-        <p>Little Wontons like to be dipped in sauce. Choose one!</p>
-        <label>
-          <input
-            type="radio"
-            value="chili-oil"
-            checked={frozenSauce === 'chili-oil'}
-            onChange={(event) => {
-              handleSelectSectionChange(event, setFrozenSauce)
-            }}
-          /> Chili oil
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="soy-sauce"
-            checked={frozenSauce === 'soy-sauce'}
-            onChange={(event) => {
-              handleSelectSectionChange(event, setFrozenSauce)
-            }}
-          /> Soy sauce
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="sweet-chili"
-            checked={frozenSauce === 'sweet-chili'}
-            onChange={(event) => {
-              handleSelectSectionChange(event, setFrozenSauce)
-            }}
-          /> Sweet Chili
-        </label>
-        <label>
-          <input
-            type="radio"
-            value='no'
-            checked={frozenSauce === 'no'}
-            onChange={(event) => {
-              handleSelectSectionChange(event, setFrozenSauce)
-            }}
-          /> Or not.
-        </label>
-      </div>
-    
-    {/* Delivery Location Section */}
-      <div className="select-section delivery-location">
-        <p>Select Delivery Location:</p>
-        <label>
-          <input
-            type="radio"
-            value="ES"
-            checked={deliveryLocation === 'ES'}
-            onChange={(event) => {
-              handleSelectSectionChange(event, setDeliveryLocation)
-            }}
-          />
-          ES Staff Lounge freezer
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="MS"
-            checked={deliveryLocation === 'MS'}
-            onChange={(event) => {
-              handleSelectSectionChange(event, setDeliveryLocation)
-            }}
-          />
-          MS Staff Lounge freezer
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="HS"
-            checked={deliveryLocation === 'HS'}
-            onChange={(event) => {
-              handleSelectSectionChange(event, setDeliveryLocation)
-            }}
-          />
-          HS Staff Lounge freezer
-        </label>
-      </div>
-    </div>
+      {/* Choose sauce */}
+        <div className="select-section sauce-section">
+          <p>Little Wontons like to be dipped in sauce. Choose one!</p>
+          <label>
+            <input
+              type="radio"
+              value="chili-oil"
+              checked={frozenSauce === 'chili-oil'}
+              onChange={(event) => {
+                handleSelectSectionChange(event, setFrozenSauce)
+              }}
+            /> Chili oil
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="soy-sauce"
+              checked={frozenSauce === 'soy-sauce'}
+              onChange={(event) => {
+                handleSelectSectionChange(event, setFrozenSauce)
+              }}
+            /> Soy sauce
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="sweet-chili"
+              checked={frozenSauce === 'sweet-chili'}
+              onChange={(event) => {
+                handleSelectSectionChange(event, setFrozenSauce)
+              }}
+            /> Sweet Chili
+          </label>
+          <label>
+            <input
+              type="radio"
+              value='no'
+              checked={frozenSauce === 'no'}
+              onChange={(event) => {
+                handleSelectSectionChange(event, setFrozenSauce)
+              }}
+            /> Or not.
+          </label>
+        </div>
+      
+      {/* Delivery Location Section */}
+        <div className="select-section delivery-location">
+          <p>Select Delivery Location:</p>
+          <label>
+            <input
+              type="radio"
+              value="ES"
+              checked={deliveryLocation === 'ES'}
+              onChange={(event) => {
+                handleSelectSectionChange(event, setDeliveryLocation)
+              }}
+            />
+            ES Staff Lounge freezer
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="MS"
+              checked={deliveryLocation === 'MS'}
+              onChange={(event) => {
+                handleSelectSectionChange(event, setDeliveryLocation)
+              }}
+            />
+            MS Staff Lounge freezer
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="HS"
+              checked={deliveryLocation === 'HS'}
+              onChange={(event) => {
+                handleSelectSectionChange(event, setDeliveryLocation)
+              }}
+            />
+            HS Staff Lounge freezer
+          </label>
+        </div>
+      </section>
+    </content>
   );
 };
 
