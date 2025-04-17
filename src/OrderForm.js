@@ -1,6 +1,6 @@
 // import { useAppContext } from './AppContext';
 import React, { useState } from 'react';
-import payment from './img/payment.png';
+import payment from './img/payment.jpg';
 import { formatSubmissionTime } from './utils';
 import { useNavigate } from 'react-router-dom';
 import { useContextSelector } from 'use-context-selector';
@@ -158,7 +158,7 @@ const OrderForm = ({ productList }) => {
                     <p>104871546592</p>
                     <p>VietinBank</p>
                   </div>
-                  <img src={payment} alt='payment' className='payment-photo' />
+                  <img src={payment} alt='payment' className='payment-photo' loading="lazy" />
                 </div>
               </div> 
             </div>

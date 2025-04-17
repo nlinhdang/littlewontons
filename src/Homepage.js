@@ -1,10 +1,10 @@
 // import logo from './img/little wontons logo.png'
-import fullLogo from './img/full-logo.png'
-import wonton1 from './img/boiled-wonton.png'
-import wonton2 from './img/fried-wonton.png'
-import wonton3 from './img/soup-wonton.png'
-import frozenPack from './img/frozen-pack.png'
-import lunchBox from './img/lunch-box.png'
+import fullLogo from './img/full-logo.webp'
+import wonton1 from './img/boiled-wonton.webp'
+import wonton2 from './img/fried-wonton.webp'
+import wonton3 from './img/soup-wonton.webp'
+import frozenPack from './img/frozen-pack.webp'
+import lunchBox from './img/lunch-box.webp'
 import whatsapLogo from './icons/whatsapp.svg'
 import zaloLogo from './icons/zalo.svg'
 import { useMemo } from 'react'
@@ -124,7 +124,7 @@ const Homepage = ({ productRef, homeRef, activeLink, setActiveLink }) => {
             <div className='frozen-pack-info'>
               <p><span>Homemade, freshly prepared,</span> then <span>frozen</span> for easy storage and cooking at home.</p>
               <p>Little Wontons come with <span>optional sauces</span> (Chinese Laoganma chili oil, sweet & chili sauce) and pair well with soy sauce.</p>
-              <img src={frozenPack} alt="" />
+              <img src={frozenPack} alt="" loading="lazy" />
             </div>
 
             <table class="price-table">
@@ -154,7 +154,7 @@ const Homepage = ({ productRef, homeRef, activeLink, setActiveLink }) => {
             <div className='lunch-box-info'>
               <p>Order your Little Wontons Lunch Box, every <span>Monday, Wednesday</span> and <span>Friday</span>, <span>cooked and delivered</span> to you.</p>
               <p>Each portion brings <span>10 wontons, bok choy, sauce of your choice</span>, and <span>seasonal fruits!</span></p>
-              <img src={lunchBox} alt="lunch box" />
+              <img src={lunchBox} alt="lunch box" loading="lazy" />
             </div>
 
             <table class="price-table">
