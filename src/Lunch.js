@@ -1,8 +1,12 @@
 // Lunch.js
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { formatNumber, calculateAmount, handleSelectSectionChange } from './utils';
 import { useContextSelector } from 'use-context-selector';
 import { LunchContext } from './Context/LunchContext';
+import plus from './icons/plus.svg'
+import minus from './icons/minus.svg'
+
+
 
 const cookedHeaders = ['Product', 'Price', 'Number of portions in a week', 'Amount', 'Operation'];
 const subHeaders = ['Monday', 'Wednesday', 'Friday']; // Thêm sub-headers
@@ -20,6 +24,7 @@ const LunchComponent = ({ lunchProductList, onQuantityChange, onQuantityUpdate, 
   const setNumWeeks = useContextSelector(LunchContext, ({ setNumWeeks }) => setNumWeeks);
   const setTotalCookedAmountWeeks = useContextSelector(LunchContext, ({ setTotalCookedAmountWeeks }) => setTotalCookedAmountWeeks);
   
+  const [showProduct, setShowProduct] = useState(false)
 
   const calculateCookedAmount = (cookedPrice, monBoiledQuantity, wedBoiledQuantity, friBoiledQuantity) => {
     return (calculateAmount(cookedPrice, monBoiledQuantity, 1000)
@@ -75,10 +80,17 @@ const LunchComponent = ({ lunchProductList, onQuantityChange, onQuantityUpdate, 
 
   return (
     <content className="lunch-section">
-      <h1>Lunch box</h1>
+      {/* Product Table Section */}
+      
+      <section
+        className="product-title"
+        onClick={() => setShowProduct(!showProduct)}
+      >
+        <h1>Lunch box</h1>
+        <img src={showProduct? minus : plus} alt="minus/plus icon" />
+      </section>
 
-
-      <div className="lunch-order">
+      <section className={`frozen-order ${showProduct ? '' : 'no-show'}`}>
         <div className="note lunch-note">
           To give me enough time to prepare your delicious lunch, please place your order by 6 PM the day before. If it's past 6 PM, just shoot me a message, and I'll check if we still have what you need!
         </div>
@@ -283,7 +295,7 @@ const LunchComponent = ({ lunchProductList, onQuantityChange, onQuantityUpdate, 
             12.20
           </label>
         </div>
-      </div>
+      </section>
     </content>
       
   );

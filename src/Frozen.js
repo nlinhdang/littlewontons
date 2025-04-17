@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { formatNumber, calculateAmount, handleSelectSectionChange } from './utils';
 import { useContextSelector } from 'use-context-selector';
 import { FrozenContext } from './Context/FrozenContext';
 import Announcement from './Announcement';
 import plus from './icons/plus.svg'
+import minus from './icons/minus.svg'
 
 // import Promotion from './Promotion';
 
@@ -16,7 +17,9 @@ const FrozenComponent = ({ frozenProductList, onQuantityChange, onQuantityUpdate
 
   const deliveryLocation = useContextSelector(FrozenContext, (context) => context.deliveryLocation);
   const setDeliveryLocation = useContextSelector(FrozenContext, (context) => context.setDeliveryLocation);
-  const setTotalFrozenAmount = useContextSelector(FrozenContext, (context) => context.setTotalFrozenAmount);  
+  const setTotalFrozenAmount = useContextSelector(FrozenContext, (context) => context.setTotalFrozenAmount);
+
+  const [showProduct, setShowProduct] = useState(false)
 
   const totalFrozenAmount = frozenProductList.reduce((sum, product) => sum + calculateAmount(product.frozenPrice, product.frozenQuantity, 100), 0);
   // Sử dụng useEffect để cập nhật giá trị totalFrozenAmount vào App Context
@@ -62,12 +65,16 @@ const FrozenComponent = ({ frozenProductList, onQuantityChange, onQuantityUpdate
 
     {/* Product Table Section */}
       
-      <section className="product-title">
+      <section
+        className="product-title"
+        onClick={() => setShowProduct(!showProduct)}
+      >
         <h1>Frozen wontons</h1>
-        {/* <img src={plus} alt="" /> */}
+        <img src={showProduct? minus : plus} alt="minus/plus icon" />
       </section>
 
-      <section className="frozen-order">
+      <section
+        className={`frozen-order ${showProduct ? '' : 'no-show'}`}>
         <Announcement year={frozenAnnouncement.year} month={frozenAnnouncement.month} day={frozenAnnouncement.day} message={frozenAnnouncement.message} className="promotion" />
 
         <div className="note lunch-note">

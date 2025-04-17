@@ -109,20 +109,18 @@ margin: 1rem auto 1rem 0.1rem
 
 .product-title {
   display: flex;
-  /* align-items: center; */
-  /* justify-content: left; */
-  /* border: 1px red solid; */
   width: 100%;
+  cursor: pointer;
+  padding: 0 1rem;
 }
 
 .product-title img {
-  width: 2rem;
+  width: 1.5rem;
 }
 
-.frozen-order,
-.lunch-order {
-  /* display: none; */
-
+.frozen-order.no-show,
+.lunch-section.no-show {
+  display: none;
 }
 
 .grid-container {
