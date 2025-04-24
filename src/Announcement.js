@@ -10,10 +10,6 @@ const Announcement = ({ year, month, day, message, className }) => {
       const endDate = new Date(year, month - 1, day, 23, 59, 59);
       const shouldShow = now <= endDate;
 
-      console.log("Current Date:", now);
-      console.log("Announcement Expiry Date:", endDate);
-      console.log("Should Show Announcement?", shouldShow);
-
       setIsVisible(shouldShow);
     };
 

@@ -83,7 +83,7 @@ function AppContent() {
         />
         <Route path="/success" element={<SuccessPage />} />
       </Routes>
-      <PopupBanner activeLink={activeLink} setActiveLink={setActiveLink} />
+      {/* <PopupBanner activeLink={activeLink} setActiveLink={setActiveLink} /> */}
     </>
   );
 }
