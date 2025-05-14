@@ -118,8 +118,20 @@ margin: 1rem auto 1rem 0.1rem
   width: 1.5rem;
 }
 
+.product-title > p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  font-size: small;
+}
+
 .frozen-order.no-show,
-.lunch-section.no-show {
+.lunch-order.no-show {
+  display: none;
+}
+
+.lunch-order {
   display: none;
 }
 
@@ -441,7 +453,8 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.lunch-note {
+.lunch-note,
+.frozen-note {
   font-size: 0.8rem;
   margin-top: 0px;
   color: #da8d00;
