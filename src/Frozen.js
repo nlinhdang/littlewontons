@@ -77,7 +77,7 @@ const FrozenComponent = ({ frozenProductList, onQuantityChange, onQuantityUpdate
         className={`frozen-order ${showProduct ? '' : 'no-show'}`}>
         <Announcement year={frozenAnnouncement.year} month={frozenAnnouncement.month} day={frozenAnnouncement.day} message={frozenAnnouncement.message} className="promotion" />
 
-        <div className="note frozen-note">
+        <div className="note lunch-note">
           Place your FROZEN orders by <span>Friday</span>, and we'll have them delivered to you on <span>Monday</span> - every week!
         </div>
         

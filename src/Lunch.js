@@ -82,16 +82,15 @@ const LunchComponent = ({ lunchProductList, onQuantityChange, onQuantityUpdate, 
     <content className="lunch-section">
       {/* Product Table Section */}
       
-      <section className="product-title" onClick={() => setShowProduct(!showProduct)}
-        // 
+      <section
+        className="product-title"
+        onClick={() => setShowProduct(!showProduct)}
       >
-        
         <h1>Lunch box</h1>
-        {/* <img src={showProduct ? minus : plus} alt="minus/plus icon" /> */}
-        <p>*** no more available</p>
+        <img src={showProduct? minus : plus} alt="minus/plus icon" />
       </section>
 
-      <section className={`lunch-order ${showProduct ? '' : 'no-show'}`}>
+      <section className={`frozen-order ${showProduct ? '' : 'no-show'}`}>
         <div className="note lunch-note">
           To give me enough time to prepare your delicious lunch, please place your order by 6 PM the day before. If it's past 6 PM, just shoot me a message, and I'll check if we still have what you need!
         </div>
